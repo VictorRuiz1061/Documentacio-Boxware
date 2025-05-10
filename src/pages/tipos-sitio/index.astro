@@ -1,0 +1,325 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Documentación API de Tipos de Sitio">
+  <div class="max-w-4xl mx-auto pt-10 pb-20">
+    <h1 class="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">API de Tipos de Sitio</h1>
+    
+    <div class="space-y-12">
+      <!-- Introducción -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Introducción</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+          Esta API permite gestionar los tipos de sitio del sistema, ofreciendo operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre los registros de tipos de sitio almacenados en la base de datos.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300">
+          Todas las respuestas se entregan en formato JSON y utilizan códigos de estado HTTP estándar.
+        </p>
+      </section>
+
+      <!-- Base URL -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
+        <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm">
+          <code>https://api.ejemplo.com</code>
+        </div>
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
+        </p>
+      </section>
+
+      <!-- Endpoints -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Endpoints</h2>
+
+        <!-- GET /tipos-sitio -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/tipos-sitio</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Obtiene una lista de todos los tipos de sitio registrados en el sistema.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>[&#123;
+  "id_tipo_sitio": 1,
+  "nombre_tipo_sitio": "Laboratorio",
+  "fecha_creacion": "2024-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2024-01-01T00:00:00.000Z"
+&#125;,
+  // Más tipos de sitio...
+]</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna la lista de tipos de sitio</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- GET /tipos-sitio/:id_tipo_sitio -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/tipos-sitio/:id_tipo_sitio</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Obtiene los detalles de un tipo de sitio específico mediante su ID.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
+            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100 dark:bg-gray-900">
+                <tr>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_tipo_sitio</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del tipo de sitio</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>[&#123;
+  "id_tipo_sitio": 1,
+  "nombre_tipo_sitio": "Laboratorio",
+  "fecha_creacion": "2024-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2024-01-01T00:00:00.000Z"
+&#125;]</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna los datos del tipo de sitio</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - El tipo de sitio no existe</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- POST /tipos-sitio -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/tipos-sitio</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Crea un nuevo tipo de sitio en el sistema.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "nombre_tipo_sitio": "Laboratorio",
+  "fecha_creacion": "2024-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2024-01-01T00:00:00.000Z"
+&#125;</code></pre>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "status": 200,
+  "message": "El tipo de sitio se registró en el sistema",
+  "id_tipo_sitio": 1
+&#125;</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Tipo de sitio creado exitosamente</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error en el servidor</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PUT /tipos-sitio/:id_tipo_sitio -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/tipos-sitio/:id_tipo_sitio</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Actualiza la información de un tipo de sitio existente.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
+            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100 dark:bg-gray-900">
+                <tr>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_tipo_sitio</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del tipo de sitio a actualizar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "nombre_tipo_sitio": "Laboratorio Actualizado",
+  "fecha_creacion": "2024-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2024-02-01T00:00:00.000Z"
+&#125;</code></pre>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "status": 200,
+  "message": "El tipo de sitio ha sido actualizado",
+  "id_tipo_sitio": 1
+&#125;</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Tipo de sitio actualizado exitosamente</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - No se ha podido actualizar el tipo de sitio</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error en el servidor</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- DELETE /tipos-sitio/:id_tipo_sitio -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/tipos-sitio/:id_tipo_sitio</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Elimina un tipo de sitio existente del sistema.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
+            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100 dark:bg-gray-900">
+                <tr>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_tipo_sitio</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del tipo de sitio a eliminar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "status": 200,
+  "message": "El tipo de sitio ha sido eliminado"
+&#125;</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Tipo de sitio eliminado exitosamente</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - No se ha podido eliminar el tipo de sitio</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Modelo de datos -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Tipo de Sitio</h3>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_tipo_sitio</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del tipo de sitio (autoincrementable)</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre_tipo_sitio</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del tipo de sitio</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha de creación del tipo de sitio</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha de última modificación del tipo de sitio</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <!-- Códigos de error -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Códigos de Error</h2>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Código</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-green-600 dark:text-green-400">200</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Operación exitosa</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-yellow-600 dark:text-yellow-400">400</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Solicitud incorrecta o recurso no encontrado</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-red-600 dark:text-red-400">500</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Error interno del servidor</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,340 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Documentación API de Centros">
+  <div class="max-w-4xl mx-auto pt-10 pb-20">
+    <h1 class="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">API de Centros</h1>
+    
+    <div class="space-y-12">
+      <!-- Introducción -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Introducción</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+          Esta API proporciona endpoints para gestionar centros en el sistema. Permite realizar operaciones CRUD
+          (Crear, Leer, Actualizar y Eliminar) sobre los registros de centros almacenados en la base de datos.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300">
+          Todas las respuestas son devueltas en formato JSON y siguen estándares HTTP para los códigos de estado.
+        </p>
+      </section>
+
+      <!-- Base URL -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
+        <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm">
+          <code>https://api.ejemplo.com</code>
+        </div>
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
+        </p>
+      </section>
+
+      <!-- Endpoints -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Endpoints</h2>
+        
+        <!-- GET /centros -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/centros</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Obtiene una lista de todos los centros registrados en el sistema.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>[&#123;
+  "id_centro": 1,
+  "nombre_centro": "Centro Principal",
+  "fecha_creacion": "2023-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2023-01-01T00:00:00.000Z",
+  "municipio_id": 5
+&#125;,
+  // Más centros...
+]</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna la lista de centros</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - No hay centros registrados</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- GET /centros/:id_centro -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/centros/:id_centro</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Obtiene los detalles de un centro específico mediante su ID.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
+            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100 dark:bg-gray-900">
+                <tr>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_centro</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del centro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>[&#123;
+  "id_centro": 1,
+  "nombre_centro": "Centro Principal",
+  "fecha_creacion": "2023-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2023-01-01T00:00:00.000Z",
+  "municipio_id": 5
+&#125;]</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna los datos del centro</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Centro no encontrado</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- POST /centros -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/centros</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Crea un nuevo centro en el sistema.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "id_centro": 5,
+  "nombre_centro": "Centro Nuevo",
+  "fecha_creacion": "2023-05-15T00:00:00.000Z",
+  "fecha_modificacion": "2023-05-15T00:00:00.000Z",
+  "municipio_id": 8
+&#125;</code></pre>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "message": "Centro registrado exitosamente"
+&#125;</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">201</span> - Centro registrado exitosamente</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- PUT /centros/:id_centro -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/centros/:id_centro</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Actualiza la información de un centro existente.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
+            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100 dark:bg-gray-900">
+                <tr>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_centro</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del centro a actualizar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "nombre_centro": "Centro Actualizado",
+  "fecha_creacion": "2023-01-01T00:00:00.000Z",
+  "fecha_modificacion": "2023-06-20T00:00:00.000Z",
+  "municipio_id": 10
+&#125;</code></pre>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "message": "Centro actualizado correctamente"
+&#125;</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Centro actualizado correctamente</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">403</span> - Error al actualizar el Centro</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- DELETE /centros/:id_centro -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/centros/:id_centro</h3>
+          </div>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Elimina un centro existente del sistema.
+          </p>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
+            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100 dark:bg-gray-900">
+                <tr>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_centro</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del centro a eliminar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "message": "Centro eliminado con éxito"
+&#125;</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Centro eliminado con éxito</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">403</span> - Error al eliminar el centro</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modelo de datos -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Centro</h3>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_centro</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del centro</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre_centro</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del centro</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de creación del centro</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de la última modificación del centro</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">municipio_id</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID del municipio al que pertenece el centro</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <!-- Códigos de error -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Códigos de Error</h2>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Código</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-green-600 dark:text-green-400">200</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Operación exitosa</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-green-600 dark:text-green-400">201</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Recurso creado exitosamente</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-yellow-600 dark:text-yellow-400">403</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Operación no permitida o fallida</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-yellow-600 dark:text-yellow-400">404</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Recurso no encontrado</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-red-600 dark:text-red-400">500</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Error interno del servidor</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</Layout>

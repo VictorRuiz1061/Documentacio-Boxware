@@ -1,0 +1,66 @@
+---
+import '../styles/tailwind.css';
+import { Sidebar } from '../components/Sidebar';
+
+interface Props {
+  title?: string;
+  isAdmin?: boolean;
+}
+
+const { 
+  title = 'Documentación API',
+  isAdmin = false
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<!-- Three.js para animación 3D -->
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<!-- Script de fondo 3D -->
+		<script is:inline src="/js/fondo3d.js"></script>
+	</head>
+	<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+		<!-- Sidebar component -->
+		<Sidebar 
+			isAdmin={isAdmin}
+		/>
+
+		<!-- Main content area with padding for sidebar -->
+		<main class="ml-72 p-6 min-h-screen">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	/* Estilos globales adicionales */
+	html {
+		font-family: system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	/* Barra de desplazamiento personalizada */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: rgba(66, 99, 235, 0.7);
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: rgba(66, 99, 235, 0.9);
+	}
+</style>

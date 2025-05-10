@@ -1,0 +1,48 @@
+---
+// Este componente contiene acciones rápidas para el usuario
+---
+
+<div class="p-4 bg-gradient-to-br from-blue-900/20 to-indigo-900/30 rounded-xl backdrop-blur-sm border border-indigo-700/20 shadow-lg">
+  <h3 class="text-xs uppercase text-indigo-300 font-bold tracking-wider mb-4 px-2 flex items-center gap-2">
+    <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full inline-block animate-pulse"></span>
+    Acciones rápidas
+  </h3>
+  
+  <div class="space-y-3">
+    <button 
+      class="w-full py-2.5 px-4 text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-lg flex items-center justify-center gap-3 transition-all duration-300 shadow-md hover:shadow-lg relative overflow-hidden active:scale-[0.98] hover:shadow-indigo-600/20"
+    >
+      <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+      <span>Nuevo documento</span>
+    </button>
+    
+    <button 
+      class="w-full py-2.5 px-4 text-sm font-medium bg-blue-950/30 hover:bg-blue-900/40 border border-indigo-700/50 text-indigo-200 rounded-lg flex items-center justify-center gap-3 transition-all duration-300 backdrop-blur-sm hover:border-indigo-500 relative overflow-hidden active:scale-[0.98] hover:shadow-lg hover:shadow-indigo-600/10"
+    >
+      <div class="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+      </svg>
+      <span>Subir archivo</span>
+    </button>
+    
+    <div class="my-4 flex items-center gap-3">
+      <div class="h-px bg-gradient-to-r from-transparent via-indigo-700/50 to-transparent flex-grow"></div>
+      <div class="text-xs text-indigo-400 font-medium">Cuenta</div>
+      <div class="h-px bg-gradient-to-r from-transparent via-indigo-700/50 to-transparent flex-grow"></div>
+    </div>
+    
+    <button 
+      class="w-full py-2.5 px-4 text-sm font-medium text-red-300 bg-red-950/20 hover:bg-red-900/30 rounded-lg flex items-center justify-center gap-3 transition-all duration-300 border border-red-900/50 hover:border-red-800 relative overflow-hidden active:scale-[0.98] hover:shadow-lg hover:shadow-red-900/20"
+    >
+      <div class="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+      </svg>
+      <span>Cerrar sesión</span>
+    </button>
+  </div>
+</div>
