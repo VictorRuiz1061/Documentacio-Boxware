@@ -1,18 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import CopyButton from '../../components/CopyButton.astro';
 ---
 
-<Layout title="Documentación API de Categorías de Materiales">
+<Layout title="Documentación API de Categorías de Elementos">
   <div class="max-w-4xl mx-auto pt-10 pb-20">
-    <h1 class="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">API de Categorías de Materiales</h1>
+    <h1 class="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">API de Categoria Elementos</h1>
     
     <div class="space-y-12">
       <!-- Introducción -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Introducción</h2>
         <p class="text-gray-700 dark:text-gray-300 mb-4">
-          Esta API proporciona endpoints para gestionar categorías de materiales en el sistema. Permite realizar operaciones CRUD
-          (Crear, Leer, Actualizar y Eliminar) sobre los registros de categorías de materiales almacenados en la base de datos.
+          Esta API proporciona endpoints para gestionar categorías de elementos en el sistema. Permite realizar operaciones CRUD
+          (Crear, Leer, Actualizar y Eliminar) sobre los registros de categorías de elementos almacenados en la base de datos.
         </p>
         <p class="text-gray-700 dark:text-gray-300">
           Todas las respuestas son devueltas en formato JSON y siguen estándares HTTP para los códigos de estado.
@@ -22,8 +23,9 @@ import Layout from '../../layouts/Layout.astro';
       <!-- Base URL -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
-        <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm">
-          <code>https://api.ejemplo.com</code>
+        <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm relative">
+          <CopyButton />
+          <code>http://localhost:3000/elementos</code>
         </div>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
@@ -36,16 +38,20 @@ import Layout from '../../layouts/Layout.astro';
         
         <!-- GET /categorias_elementos -->
         <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/categorias_elementos</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/elementos</h3>
+            <div class="absolute right-0">
+              <CopyButton />
+            </div>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Obtiene una lista de todas las categorías de materiales registradas en el sistema.
           </p>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>[&#123;
   "id_categoria_elemento": 1,
   "codigo_unpsc": "40101600",
@@ -60,109 +66,73 @@ import Layout from '../../layouts/Layout.astro';
           <div>
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
             <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna la lista de categorías de materiales</li>
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna la lista de categorías de elementos</li>
               <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al mostrar las categorías de elementos</li>
             </ul>
           </div>
         </div>
         
         <!-- GET /categorias_elementos/buscar/:id_categoria_elemento -->
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/categorias_elementos/buscar/:id_categoria_elemento</h3>
-          </div>
-          <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Obtiene los detalles de una categoría de material específica mediante su ID.
-          </p>
-          <div class="mb-6">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
-            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-              <thead class="bg-gray-100 dark:bg-gray-900">
-                <tr>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_categoria_elemento</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único de la categoría de material</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="mb-6">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
-              <pre class="language-json overflow-x-auto text-sm"><code>[&#123;
-  "id_categoria_elemento": 1,
-  "codigo_unpsc": "40101600",
-  "nombre_categoria": "Máquinas y equipos para procesos industriales",
-  "fecha_creacion": "2023-01-01T00:00:00.000Z",
-  "fecha_modificacion": "2023-01-01T00:00:00.000Z"
-&#125;]</code></pre>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
-            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna los datos de la categoría de material</li>
-              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Categoría de material no encontrada</li>
-              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al buscar la categoría de material</li>
-            </ul>
-          </div>
-        </div>
+        
         
         <!-- POST /categorias_elementos/crear -->
         <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/categorias_elementos/crear</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/elementos</h3>
+            <div class="absolute right-0">
+              <CopyButton />
+            </div>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Crea una nueva categoría de material en el sistema.
+            Crea una nueva categoría de elemento en el sistema.
           </p>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "codigo_unpsc": "40101600",
-  "nombre_categoria": "Máquinas y equipos para procesos industriales",
-  "fecha_creacion": "2023-01-01T00:00:00.000Z",
-  "fecha_modificacion": "2023-01-01T00:00:00.000Z"
+
+"codigo_unpsc": "SEE1001",
+"nombre_categoria": "Electronicos",
+"estado": true,
+"fecha_creacion": "2025-05-02T23:17:47.505Z",
+"fecha_modificacion": "2025-05-02T23:17:47.505Z"
+    
 &#125;</code></pre>
             </div>
           </div>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
   "status": 200,
-  "message": "Categoría de material creada con éxito"
+  "message": "Categoría de elemento creada con éxito"
 &#125;</code></pre>
             </div>
           </div>
           <div>
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
             <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Categoría de material creada con éxito</li>
-              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - No se pudo crear la categoría de material</li>
-              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al crear la categoría de material</li>
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Categoría de elemento creada con éxito</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - No se pudo crear la categoría de elemento</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al crear la categoría de elemento</li>
             </ul>
           </div>
         </div>
         
         <!-- PUT /categorias_elementos/actualizar/:id_categoria_elemento -->
         <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/categorias_elementos/actualizar/:id_categoria_elemento</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/categoria-elementos/:id_categoria_elemento</h3>
+            <div class="absolute right-0">
+              <CopyButton />
+            </div>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Actualiza la información de una categoría de material existente.
+            Actualiza la información de una categoría de elemento existente.
           </p>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
@@ -178,49 +148,57 @@ import Layout from '../../layouts/Layout.astro';
                 <tr>
                   <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_categoria_elemento</td>
                   <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único de la categoría de material a actualizar</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único de la categoría de elemento a actualizar</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "codigo_unpsc": "40101700",
-  "nombre_categoria": "Máquinas y equipos industriales mejorados",
-  "fecha_creacion": "2023-01-01T00:00:00.000Z",
-  "fecha_modificacion": "2023-02-15T00:00:00.000Z"
+
+"codigo_unpsc": "SEE1002",
+"nombre_categoria": "Electronico",
+"estado": false,
+"fecha_creacion": "2025-05-02T23:17:47.505Z",
+"fecha_modificacion": "2025-05-02T23:17:47.505Z"
+
 &#125;</code></pre>
             </div>
           </div>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
   "status": 200,
-  "message": "Categoría de material actualizada con éxito"
+  "message": "Categoría de elemento actualizada con éxito"
 &#125;</code></pre>
             </div>
           </div>
           <div>
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
             <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Categoría de material actualizada con éxito</li>
-              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Categoría de material no encontrada</li>
-              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al actualizar la categoría de material</li>
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Categoría de elemento actualizada con éxito</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Categoría de elemento no encontrada</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al actualizar la categoría de elemento</li>
             </ul>
           </div>
         </div>
         
         <!-- DELETE /categorias_elementos/eliminar/:id_categoria_elemento -->
         <div>
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/categorias_elementos/eliminar/:id_categoria_elemento</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/categoria-elementos/:id_categoria_elemento</h3>
+            <div class="absolute right-0">
+              <CopyButton />
+            </div>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Elimina una categoría de material existente del sistema.
+            Elimina una categoría de elemento existente del sistema.
           </p>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
@@ -236,26 +214,27 @@ import Layout from '../../layouts/Layout.astro';
                 <tr>
                   <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_categoria_elemento</td>
                   <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único de la categoría de material a eliminar</td>
+                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único de la categoría de elemento a eliminar</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
   "status": 200,
-  "message": "Categoría de material eliminada con éxito"
+  "message": "Categoría de elemento eliminada con éxito"
 &#125;</code></pre>
             </div>
           </div>
           <div>
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
             <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Categoría de material eliminada con éxito</li>
-              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Categoría de material no encontrada</li>
-              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al eliminar la categoría de material</li>
+              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Categoría de elemento eliminada con éxito</li>
+              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Categoría de elemento no encontrada</li>
+              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al eliminar la categoría de elemento</li>
             </ul>
           </div>
         </div>
@@ -264,7 +243,7 @@ import Layout from '../../layouts/Layout.astro';
       <!-- Modelo de datos -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
-        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Categoría de Material</h3>
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Categoría de Elemento</h3>
         <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
           <thead class="bg-gray-100 dark:bg-gray-900">
             <tr>
@@ -277,7 +256,7 @@ import Layout from '../../layouts/Layout.astro';
             <tr>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_categoria_elemento</td>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único de la categoría de material (autoincrementable)</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único de la categoría de elemento (autoincrementable)</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">codigo_unpsc</td>
@@ -287,17 +266,17 @@ import Layout from '../../layouts/Layout.astro';
             <tr>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre_categoria</td>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre de la categoría de material</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre de la categoría de elemento</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de creación de la categoría de material</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de creación de la categoría de elemento</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
               <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de la última modificación de la categoría de material</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de la última modificación de la categoría de elemento</td>
             </tr>
           </tbody>
         </table>

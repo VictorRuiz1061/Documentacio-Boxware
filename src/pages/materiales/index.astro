@@ -23,7 +23,7 @@ import Layout from '../../layouts/Layout.astro';
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
         <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm">
-          <code>https://api.ejemplo.com</code>
+          <code>http://localhost:3000/materiales</code>
         </div>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
@@ -38,7 +38,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/materiales</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/materiales</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Obtiene una lista de todos los materiales registrados en el sistema.
@@ -76,70 +76,12 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         
         <!-- GET /materiales/:id_material -->
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/materiales/:id_material</h3>
-          </div>
-          <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Obtiene los detalles de un material específico mediante su ID.
-          </p>
-          <div class="mb-6">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
-            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-              <thead class="bg-gray-100 dark:bg-gray-900">
-                <tr>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_material</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único del material</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="mb-6">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
-              <pre class="language-json overflow-x-auto text-sm"><code>[
-  &#123;
-    "id_material": 1,
-    "codigo_sena": "MS-001",
-    "nombre_material": "Acero inoxidable",
-    "descripcion_material": "Plancha de acero inoxidable de 2mm",
-    "stock": 50,
-    "unidad_medida": "unidad",
-    "fecha_vencimiento": null,
-    "producto_perecedero": false,
-    "fecha_creacion": "2023-01-15T10:30:00.000Z",
-    "fecha_modificacion": "2023-01-15T10:30:00.000Z",
-    "categoria_id": 1,
-    "tipo_material_id": 2,
-    "sitio_id": 3
-  &#125;
-]</code></pre>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
-            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna los datos del material</li>
-              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - El material no existe</li>
-              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor al buscar el material</li>
-            </ul>
-          </div>
-        </div>
         
         <!-- POST /materiales -->
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/materiales</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/materiales</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Crea un nuevo material en el sistema.
@@ -148,18 +90,22 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "codigo_sena": "MS-002",
-  "nombre_material": "Aluminio",
-  "descripcion_material": "Perfil de aluminio 20x20mm",
-  "stock": 100,
-  "unidad_medida": "metros",
-  "fecha_vencimiento": null,
-  "producto_perecedero": false,
-  "fecha_creacion": "2023-05-20T15:45:00.000Z",
-  "fecha_modificacion": "2023-05-20T15:45:00.000Z",
-  "categoria_id": 1,
-  "tipo_material_id": 2,
-  "sitio_id": 3
+
+"codigo_sena": "1",
+"nombre_material": "Computador",
+"descripcion_material": "Esta en buen estado",
+"stock": 50,
+"unidad_medida": "cajas",
+"estado": true,
+"producto_perecedero": true,
+"fecha_vencimiento": "2028-10-19T16:00:00.000Z",
+"imagen": "/assets/computador.jpg",
+"fecha_creacion": "2025-05-02T23:20:48.514Z",
+"fecha_modificacion": "2025-05-02T23:20:48.514Z",
+"id_categoria": 1,
+"id_tipo_material": 2,
+"id_sitio": 3
+              
 &#125;</code></pre>
             </div>
           </div>
@@ -167,9 +113,7 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "status": 200,
-  "message": "Material creado correctamente",
-  "id": 2
+"mensaje": "Material creado correctamente",
 &#125;</code></pre>
             </div>
           </div>
@@ -187,7 +131,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/materiales/:id_material</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/materiales/:id_material</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Actualiza la información de un material existente.
@@ -215,18 +159,22 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "codigo_sena": "MS-002",
-  "nombre_material": "Aluminio Reforzado",
-  "descripcion_material": "Perfil de aluminio reforzado 20x20mm",
-  "stock": 80,
-  "unidad_medida": "metros",
-  "fecha_vencimiento": null,
-  "producto_perecedero": false,
-  "fecha_creacion": "2023-05-20T15:45:00.000Z",
-  "fecha_modificacion": "2023-06-25T09:30:00.000Z",
-  "categoria_id": 1,
-  "tipo_material_id": 2,
-  "sitio_id": 3
+
+"codigo_sena": "1",
+"nombre_material": "Computadore",
+"descripcion_material": "Esta en buen estado",
+"stock": 50,
+"unidad_medida": "cajas",
+"estado": false,
+"producto_perecedero": true,
+"fecha_vencimiento": "2028-10-19T16:00:00.000Z",
+"imagen": "/assets/computador.jpg",
+"fecha_creacion": "2025-05-02T23:20:48.514Z",
+"fecha_modificacion": "2025-05-02T23:20:48.514Z",
+"id_categoria": 1,
+"id_tipo_material": 2,
+"id_sitio": 3
+              
 &#125;</code></pre>
             </div>
           </div>
@@ -234,8 +182,7 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "status": 200,
-  "message": "Material actualizado correctamente"
+"mensaje": "Material creado correctamente",
 &#125;</code></pre>
             </div>
           </div>
@@ -253,7 +200,7 @@ import Layout from '../../layouts/Layout.astro';
         <div>
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/materiales/:id_material</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/materiales/:id_material</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Elimina un material existente del sistema.
@@ -281,8 +228,7 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "status": 200,
-  "message": "Material eliminado correctamente"
+"mensaje": "Material eliminado correctamente"
 &#125;</code></pre>
             </div>
           </div>

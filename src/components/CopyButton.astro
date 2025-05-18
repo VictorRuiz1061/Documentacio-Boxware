@@ -1,0 +1,108 @@
+---
+// CopyButton.astro - Botón con icono para copiar texto
+---
+
+<button
+  class="copy-button absolute top-2 right-2 p-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-colors duration-200 opacity-80 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  aria-label="Copiar al portapapeles"
+  title="Copiar al portapapeles"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-5 w-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+    />
+  </svg>
+</button>
+
+<script>
+  // Inicializar todos los botones de copia cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButtons = document.querySelectorAll('.copy-button');
+    
+    copyButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        // Encontrar el elemento contenedor más cercano
+        const parentDiv = button.closest('div');
+        if (!parentDiv) return;
+        
+        // Intentar encontrar diferentes tipos de elementos para copiar
+        let textToCopy = '';
+        
+        // 1. Intentar encontrar un bloque de código pre/code
+        const codeBlock = parentDiv.querySelector('pre code');
+        if (codeBlock && codeBlock.textContent) {
+          textToCopy = codeBlock.textContent
+            .replace(/&#123;/g, '{')
+            .replace(/&#125;/g, '}');
+        } 
+        // 2. Intentar encontrar un elemento code (URL base)
+        else if (parentDiv.querySelector('code')) {
+          const urlCode = parentDiv.querySelector('code');
+          if (urlCode && urlCode.textContent) {
+            textToCopy = urlCode.textContent;
+          }
+        } 
+        // 3. Intentar encontrar un encabezado h3 (endpoints)
+        else if (parentDiv.querySelector('h3')) {
+          const urlHeading = parentDiv.querySelector('h3');
+          if (urlHeading && urlHeading.textContent) {
+            textToCopy = urlHeading.textContent;
+          }
+        }
+        
+        // Si no hay texto para copiar, salir
+        if (!textToCopy) return;
+        
+        try {
+          // Copiar al portapapeles
+          await navigator.clipboard.writeText(textToCopy);
+          
+          // Cambiar temporalmente el icono para dar feedback de éxito
+          const originalHTML = button.innerHTML || '';
+          button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          `;
+          button.classList.add('bg-green-700');
+          button.classList.remove('bg-gray-700');
+          
+          // Restaurar el icono original después de 2 segundos
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.classList.remove('bg-green-700');
+            button.classList.add('bg-gray-700');
+          }, 2000);
+        } catch (err) {
+          console.error('Error al copiar:', err);
+          
+          // Mostrar icono de error
+          const originalHTML = button.innerHTML || '';
+          button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+          button.classList.add('bg-red-700');
+          button.classList.remove('bg-gray-700');
+          
+          // Restaurar el icono original después de 2 segundos
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.classList.remove('bg-red-700');
+            button.classList.add('bg-gray-700');
+          }, 2000);
+        }
+      });
+    });
+  });
+</script>

@@ -23,7 +23,7 @@ import Layout from '../../layouts/Layout.astro';
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
         <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm">
-          <code>https://api.ejemplo.com</code>
+          <code>http://localhost:3000/sedes</code>
         </div>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
@@ -38,7 +38,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/sedes</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/sedes</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Obtiene una lista de todas las sedes registradas en el sistema.
@@ -69,61 +69,12 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         
         <!-- GET /sedes/:id_sede -->
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/sedes/:id_sede</h3>
-          </div>
-          <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Obtiene los detalles de una sede específica mediante su ID.
-          </p>
-          <div class="mb-6">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
-            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-              <thead class="bg-gray-100 dark:bg-gray-900">
-                <tr>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-                  <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_sede</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-                  <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID único de la sede</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="mb-6">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
-              <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "id_sede": 1,
-  "nombre_sede": "Sede Principal",
-  "direccion_sede": "Calle 123 #45-67",
-  "fecha_creacion": "2023-01-01T00:00:00.000Z",
-  "fecha_modificacion": "2023-01-01T00:00:00.000Z",
-  "centro_sede_id": 5
-&#125;</code></pre>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
-            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Éxito, retorna los datos de la sede</li>
-              <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Sede no encontrada</li>
-              <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor, contacte al administrador</li>
-            </ul>
-          </div>
-        </div>
         
         <!-- POST /sedes -->
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/sedes</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/sedes</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Crea una nueva sede en el sistema.
@@ -132,12 +83,14 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "id_sede": 5,
-  "nombre_sede": "Sede Nueva",
-  "direccion_sede": "Avenida Principal #100-45",
-  "fecha_creacion": "2023-05-15T00:00:00.000Z",
-  "fecha_modificacion": "2023-05-15T00:00:00.000Z",
-  "centro_sede_id": 3
+
+"nombre_sede": "Sena ",
+"direccion_sede": "Centro de pitalito",
+"estado": 0,
+"fecha_creacion": "2025-05-02T22:57:30.759Z",                  
+"fecha_modificacion": "2025-05-02T22:57:30.759Z",
+"centro_id": 1
+
 &#125;</code></pre>
             </div>
           </div>
@@ -163,7 +116,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/sedes/:id_sede</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/sedes/:id_sede</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Actualiza la información de una sede existente.
@@ -191,10 +144,15 @@ import Layout from '../../layouts/Layout.astro';
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
             <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
-  "nombre_sede": "Sede Actualizada",
-  "direccion_sede": "Nueva Dirección #200-50",
-  "fecha_modificacion": "2023-06-20T00:00:00.000Z",
-  "centro_sede_id": 4
+
+"nombre_sede": "Sena ",
+"direccion_sede": "Centro de pitalito",
+"estado": 0,
+"fecha_creacion": "2025-05-02T22:57:30.759Z",
+"fecha_modificacion": "2025-05-02T22:57:30.759Z",
+"centro_id": 1
+
+              
 &#125;</code></pre>
             </div>
           </div>
@@ -220,7 +178,7 @@ import Layout from '../../layouts/Layout.astro';
         <div>
           <div class="flex items-center gap-3 mb-4">
             <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">/sedes/:id_sede</h3>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/sedes/:id_sede</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Elimina una sede existente del sistema.
