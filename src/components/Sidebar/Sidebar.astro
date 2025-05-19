@@ -2,7 +2,7 @@
 // Importaciones de componentes globales de usuario
 import NavigationMenu from './NavigationMenu.astro';
 import { AnimacionDeSubida } from '../AnimacionDeSubida';
-import { Button } from '../Button';
+// import { Button } from '../Button'; // Ya no se necesita
 
 // Propiedades para personalizar el sidebar
 interface Props {
@@ -15,18 +15,17 @@ const {
 const currentPath = Astro.url.pathname;
 const isFelipage = currentPath === '/felipe';
 
-// Configuración del botón según la página actual
-const buttonHref = isFelipage ? '/' : '/felipe';
-const buttonText = isFelipage ? 'Volver a Documentación' : 'Documentación Técnica';
+// Ya no necesitamos la configuración del botón
+
 ---
 
-<aside class="bg-gradient-to-b from-indigo-900 to-indigo-950 text-white h-screen w-64 fixed left-0 top-0 overflow-y-auto shadow-xl">
-  <div class="flex flex-col h-full p-4">
+<aside class="bg-gradient-to-br from-slate-800 via-blue-950 to-slate-900 text-white h-screen w-72 fixed left-0 top-0 overflow-y-auto shadow-xl border-r border-slate-700/30">
+  <div class="flex flex-col h-full">
     <!-- Encabezado del sidebar -->
     <AnimacionDeSubida>
-      <div class="mb-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="bg-indigo-600 p-2 rounded-lg shadow-lg">
+      <div class="p-5 border-b border-slate-700/30">
+        <div class="flex items-center gap-3">
+          <div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-2.5 rounded-xl shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
@@ -36,28 +35,7 @@ const buttonText = isFelipage ? 'Volver a Documentación' : 'Documentación Téc
       </div>
     </AnimacionDeSubida>
     
-    <!-- Botón que cambia según la página actual -->
-    <AnimacionDeSubida delay={150} duration={600}>
-      <div class="mb-6">
-        <Button 
-          href={buttonHref} 
-          variant="primary" 
-          fullWidth={true}
-          class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md"
-        >
-          {isFelipage ? (
-            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
-            </svg>
-          ) : (
-            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          )}
-          {buttonText}
-        </Button>
-      </div>
-    </AnimacionDeSubida>
+    <!-- Se eliminó el botón de Documentación Técnica -->
     
     <!-- Componente de navegación (solo se muestra si no estamos en la página de Felipe) -->
     {!isFelipage && (

@@ -11,6 +11,12 @@ const {
   title = 'Documentación API',
   isAdmin = false
 } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isFelipage = currentPath === '/felipe';
+
+// Configuración del botón según la página actual
+const buttonHref = isFelipage ? '/' : '/felipe';
+const buttonText = isFelipage ? 'Volver a Documentación' : 'Documentación Técnica';
 ---
 
 <!doctype html>
@@ -27,13 +33,34 @@ const {
 		<script is:inline src="/js/fondo3d.js"></script>
 	</head>
 	<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+		<!-- Barra superior larga con diseño mejorado -->
+		<header class="fixed top-0 left-72 right-0 z-10 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 h-16 flex items-center justify-center shadow-lg border-b border-blue-800/30 backdrop-blur-sm bg-opacity-90">
+			<div class="w-full max-w-screen-xl mx-auto px-6 flex items-center justify-center">
+				<a href={buttonHref} class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 py-2.5 px-10 rounded-xl text-white font-medium shadow-lg flex items-center gap-3 w-auto justify-center transform hover:-translate-y-0.5">
+					<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-400/20 to-indigo-400/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+					<span class="relative flex items-center gap-2">
+						{isFelipage ? (
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+							</svg>
+						) : (
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+							</svg>
+						)}
+						<span class="font-semibold tracking-wide text-white/90 group-hover:text-white">{buttonText}</span>
+					</span>
+				</a>
+			</div>
+		</header>
+
 		<!-- Sidebar component -->
 		<Sidebar 
 			isAdmin={isAdmin}
 		/>
 
 		<!-- Main content area with padding for sidebar -->
-		<main class="ml-72 p-6 min-h-screen">
+		<main class="ml-72 p-6 min-h-screen pt-20">
 			<slot />
 		</main>
 	</body>

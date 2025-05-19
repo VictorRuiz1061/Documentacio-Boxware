@@ -5,6 +5,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   icon?: string;
+  class?: string;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   size = 'md',
   fullWidth = false,
   icon,
+  class: customClass = '',
 } = Astro.props;
 
 // Estilos según la variante
@@ -31,7 +33,7 @@ const sizeStyles = {
 
 const baseStyles = 'rounded-lg transition-all duration-200 ease-in-out font-medium flex items-center justify-center gap-2 focus:ring-2 focus:ring-indigo-400/50 focus:outline-none';
 
-const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${fullWidth ? 'w-full' : ''}`;
+const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${fullWidth ? 'w-full' : ''} ${customClass}`;
 
 const Element = href ? 'a' : 'button';
 ---
