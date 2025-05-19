@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import CopyButton from '../../components/CopyButton.astro';
 ---
 
 <Layout title="Documentación API de Roles">
@@ -21,7 +22,8 @@ import Layout from '../../layouts/Layout.astro';
       <!-- Base URL -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
-        <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm">
+        <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm relative">
+          <CopyButton />
           <code>http://localhost:3000/roles</code>
         </div>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
@@ -35,8 +37,9 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- GET /roles -->
         <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
+            <CopyButton />
             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/roles</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
@@ -69,8 +72,9 @@ import Layout from '../../layouts/Layout.astro';
         
         <!-- POST /roles -->
         <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+            <CopyButton />
             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/roles</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
@@ -78,7 +82,8 @@ import Layout from '../../layouts/Layout.astro';
           </p>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />  
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
   "nombre_rol": "Administrador",
   "descripcion": "Control total del sistema",
@@ -106,8 +111,9 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- PUT /roles/:id_rol -->
         <div class="mb-12">
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
+            <CopyButton />
             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/roles/:id_rol</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
@@ -134,7 +140,8 @@ import Layout from '../../layouts/Layout.astro';
           </div>
           <div class="mb-6">
             <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
-            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+              <CopyButton />
               <pre class="language-json overflow-x-auto text-sm"><code>&#123;
 
 "nombre_rol": "Administradores",
@@ -166,8 +173,9 @@ import Layout from '../../layouts/Layout.astro';
         
         <!-- DELETE /roles/:id_rol -->
         <div>
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
+            <CopyButton />
             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/roles/:id_rol</h3>
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
