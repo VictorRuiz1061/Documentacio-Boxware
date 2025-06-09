@@ -32,6 +32,43 @@ import CopyButton from '../../components/CopyButton.astro';
         </p>
       </section>
 
+      <!-- Modelo de datos -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Municipio</h3>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_municipio</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del municipio</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre_municipio</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del municipio</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de creación del municipio</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de la última modificación del municipio</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       <!-- Endpoints -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Endpoints</h2>
@@ -222,43 +259,6 @@ import CopyButton from '../../components/CopyButton.astro';
         </div>
       </section>
 
-      <!-- Modelo de datos -->
-      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
-        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Municipio</h3>
-        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-100 dark:bg-gray-900">
-            <tr>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_municipio</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del municipio</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre_municipio</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del municipio</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de creación del municipio</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de la última modificación del municipio</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      
       <!-- Códigos de error -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Códigos de Error</h2>

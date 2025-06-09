@@ -5,11 +5,13 @@ import { Sidebar } from '../components/Sidebar';
 interface Props {
   title?: string;
   isAdmin?: boolean;
+  hideSidebar?: boolean;
 }
 
 const { 
   title = 'Documentación API',
-  isAdmin = false
+  isAdmin = false,
+  hideSidebar = false
 } = Astro.props;
 const currentPath = Astro.url.pathname;
 const isFelipage = currentPath === '/requirimientos';
@@ -34,7 +36,7 @@ const buttonText = isFelipage ? 'Volver a Documentación' : 'Requirimientos';
 	</head>
 	<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 		<!-- Barra superior larga con diseño mejorado -->
-		<header class="fixed top-0 left-72 right-0 z-10 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 h-16 flex items-center justify-center shadow-lg border-b border-blue-800/30 backdrop-blur-sm bg-opacity-90">
+		<header class={`fixed top-0 ${hideSidebar ? 'left-0' : 'left-72'} right-0 z-10 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 h-16 flex items-center justify-center shadow-lg border-b border-blue-800/30 backdrop-blur-sm bg-opacity-90`}>
 			<div class="w-full max-w-screen-xl mx-auto px-6 flex items-center justify-center">
 				<a href={buttonHref} class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 py-2.5 px-10 rounded-xl text-white font-medium shadow-lg flex items-center gap-3 w-auto justify-center transform hover:-translate-y-0.5">
 					<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-400/20 to-indigo-400/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -55,12 +57,14 @@ const buttonText = isFelipage ? 'Volver a Documentación' : 'Requirimientos';
 		</header>
 
 		<!-- Sidebar component -->
-		<Sidebar 
-			isAdmin={isAdmin}
-		/>
+		{!hideSidebar && (
+			<Sidebar 
+				isAdmin={isAdmin}
+			/>
+		)}
 
 		<!-- Main content area with padding for sidebar -->
-		<main class="ml-72 p-6 min-h-screen pt-20">
+		<main class={`${hideSidebar ? 'ml-0' : 'ml-72'} p-6 min-h-screen pt-20`}>
 			<slot />
 		</main>
 	</body>

@@ -30,6 +30,48 @@ import CopyButton from '../../components/CopyButton.astro';
           Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
         </p>
       </section>
+      
+      <!-- Modelo de datos -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Tipo Material</h3>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_tipo_material</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del tipo de material (autoincrementable)</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">tipo_elemento</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del tipo de material</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">estado</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Boolean</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Estado del tipo de material (activo/inactivo)</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha de creación del tipo de material</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha de última modificación del tipo de material</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
       <!-- Endpoints -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
@@ -217,48 +259,6 @@ import CopyButton from '../../components/CopyButton.astro';
             </ul>
           </div>
         </div>
-      </section>
-      
-      <!-- Modelo de datos -->
-      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
-        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Tipo Material</h3>
-        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-100 dark:bg-gray-900">
-            <tr>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_tipo_material</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del tipo de material (autoincrementable)</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">tipo_elemento</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del tipo de material</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">estado</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Boolean</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Estado del tipo de material (activo/inactivo)</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_creacion</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha de creación del tipo de material</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_modificacion</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha de última modificación del tipo de material</td>
-            </tr>
-          </tbody>
-        </table>
       </section>
       
       <!-- Códigos de error -->

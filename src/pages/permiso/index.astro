@@ -30,6 +30,48 @@ import CopyButton from '../../components/CopyButton.astro';
         </p>
       </section>
 
+      <!-- Modelo de datos -->
+      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Permiso</h3>
+        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-100 dark:bg-gray-900">
+            <tr>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_permiso</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del permiso (autoincrementable)</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del permiso</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">codigo_nombre</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Código único asociado al permiso</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">modulo_id</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID del módulo al que pertenece el permiso</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">rol_id</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
+              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID del rol asociado al permiso</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       <!-- Endpoints -->
       <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Endpoints</h2>
@@ -222,48 +264,6 @@ import CopyButton from '../../components/CopyButton.astro';
             </ul>
           </div>
         </div>
-      </section>
-
-      <!-- Modelo de datos -->
-      <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-        <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
-        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Permiso</h3>
-        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-100 dark:bg-gray-900">
-            <tr>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-              <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id_permiso</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único del permiso (autoincrementable)</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nombre</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nombre del permiso</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">codigo_nombre</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Código único asociado al permiso</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">modulo_id</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID del módulo al que pertenece el permiso</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">rol_id</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-              <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">ID del rol asociado al permiso</td>
-            </tr>
-          </tbody>
-        </table>
       </section>
 
       <!-- Códigos de error -->
