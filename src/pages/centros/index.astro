@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CopyButton from '../../components/CopyButton.astro';
+import ApiUrl from '../../components/ApiUrl.astro';
 ---
 
 <Layout title="Documentación API de Centros">
@@ -25,7 +26,7 @@ import CopyButton from '../../components/CopyButton.astro';
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
         <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm relative">
           <CopyButton />
-          <code>http://localhost:3000/centros</code>
+          <ApiUrl endpoint="/centros" tag="code" />
         </div>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
@@ -83,7 +84,7 @@ import CopyButton from '../../components/CopyButton.astro';
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
             <CopyButton />
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/centros</h3>
+            <ApiUrl endpoint="/centros" tag="h3" />
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Obtiene una lista de todos los centros registrados en el sistema.
@@ -120,7 +121,7 @@ import CopyButton from '../../components/CopyButton.astro';
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
             <CopyButton />
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/centros</h3>
+            <ApiUrl endpoint="/centros" tag="h3" />
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Crea un nuevo centro en el sistema.
@@ -162,7 +163,7 @@ import CopyButton from '../../components/CopyButton.astro';
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
             <CopyButton />
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/centros/:id_centro</h3>
+            <ApiUrl endpoint="/centros/:id_centro" tag="h3" />
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Actualiza la información de un centro existente.
@@ -224,7 +225,7 @@ import CopyButton from '../../components/CopyButton.astro';
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
             <CopyButton />
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/centros/:id_centro</h3>
+            <ApiUrl endpoint="/centros/:id_centro" tag="h3" />
           </div>
           <p class="mb-4 text-gray-700 dark:text-gray-300">
             Elimina un centro existente del sistema.

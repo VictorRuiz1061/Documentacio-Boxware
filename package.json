@@ -6,10 +6,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update-api-urls": "node scripts/update-api-urls.js"
   },
   "dependencies": {
-    "astro": "^5.7.5"
+    "astro": "^5.7.5",
+    "glob": "^10.3.10"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",

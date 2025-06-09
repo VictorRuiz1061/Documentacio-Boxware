@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CopyButton from '../../components/CopyButton.astro';
+import ApiUrl from '../../components/ApiUrl.astro';
 ---
 
 <Layout title="Documentación API de Áreas">
@@ -25,7 +26,7 @@ import CopyButton from '../../components/CopyButton.astro';
         <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
         <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm relative">
           <CopyButton />
-          <code>http://localhost:3000/areas</code>
+          <ApiUrl endpoint="/areas" tag="code" />
         </div>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
@@ -77,7 +78,7 @@ import CopyButton from '../../components/CopyButton.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-green-500 text-white px-3 py-1 rounded-md font-bold text-sm">GET</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/areas</h3>
+            <ApiUrl endpoint="/areas" tag="h3" />
             <div class="absolute right-0">
               <CopyButton />
             </div>
@@ -113,7 +114,7 @@ import CopyButton from '../../components/CopyButton.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-blue-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/areas</h3>
+            <ApiUrl endpoint="/areas" tag="h3" />
             <div class="absolute right-0">
               <CopyButton />
             </div>
@@ -159,7 +160,7 @@ import CopyButton from '../../components/CopyButton.astro';
         <div class="mb-12">
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">PUT</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/areas/:id_area</h3>
+            <ApiUrl endpoint="/areas/:id_area" tag="h3" />
             <div class="absolute right-0">
               <CopyButton />
             </div>
@@ -223,7 +224,7 @@ import CopyButton from '../../components/CopyButton.astro';
         <div>
           <div class="flex items-center gap-3 mb-4 relative">
             <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">http://localhost:3000/areas/:id_area</h3>
+            <ApiUrl endpoint="/areas/:id_area" tag="h3" />
             <div class="absolute right-0">
               <CopyButton />
             </div>

@@ -1,0 +1,34 @@
+---
+// Importamos la configuración de la API
+import { API_BASE_URL, getApiUrl } from '../constants/apiConfig';
+
+interface Props {
+  endpoint: string;
+  showFull?: boolean; // Si es true, muestra la URL completa; si es false, solo muestra el endpoint
+  className?: string; // Clases adicionales para el elemento
+  tag?: 'code' | 'h3' | 'p' | 'span'; // Etiqueta HTML a utilizar
+}
+
+const { 
+  endpoint, 
+  showFull = true, 
+  className = '', 
+  tag = 'code' 
+} = Astro.props;
+
+// Construimos la URL completa o solo el endpoint según el parámetro showFull
+const url = showFull ? getApiUrl(endpoint) : endpoint;
+
+// Definimos las clases según el tipo de etiqueta
+let defaultClasses = '';
+if (tag === 'h3') {
+  defaultClasses = 'text-xl font-semibold text-gray-800 dark:text-gray-200';
+}
+
+const combinedClasses = `${defaultClasses} ${className}`.trim();
+---
+
+{tag === 'code' && <code class={combinedClasses}>{url}</code>}
+{tag === 'h3' && <h3 class={combinedClasses}>{url}</h3>}
+{tag === 'p' && <p class={combinedClasses}>{url}</p>}
+{tag === 'span' && <span class={combinedClasses}>{url}</span>} 
