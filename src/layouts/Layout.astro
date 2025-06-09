@@ -12,11 +12,11 @@ const {
   isAdmin = false
 } = Astro.props;
 const currentPath = Astro.url.pathname;
-const isFelipage = currentPath === '/felipe';
+const isFelipage = currentPath === '/requirimientos';
 
 // Configuración del botón según la página actual
-const buttonHref = isFelipage ? '/' : '/felipe';
-const buttonText = isFelipage ? 'Volver a Documentación' : 'Documentación Técnica';
+const buttonHref = isFelipage ? '/' : '/requirimientos';
+const buttonText = isFelipage ? 'Volver a Documentación' : 'Requirimientos';
 ---
 
 <!doctype html>
