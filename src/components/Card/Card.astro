@@ -1,5 +1,5 @@
 ---
-import { AnimacionDeSubida } from '../AnimacionDeSubida';
+// import { AnimacionDeSubida } from '../AnimacionDeSubida';
 
 interface Props {
   title?: string;
@@ -17,14 +17,10 @@ const {
 <div class={`p-6 rounded-xl ${hasGlassEffect ? 'backdrop-blur-md bg-white/10 border border-white/20 shadow-xl' : 'bg-white dark:bg-gray-800 shadow-md'}`}>
   <div class="text-center">
     {title && (
-      <AnimacionDeSubida duration={1200}>
-        <h2 class="text-6xl font-bold text-white mb-4">{title}</h2>
-      </AnimacionDeSubida>
+      <h2 class="text-6xl font-bold text-white mb-4">{title}</h2>
     )}
     {subtitle && (
-      <AnimacionDeSubida delay={300} duration={1000}>
-        <p class="text-6xl font-bold text-white mb-4">{subtitle}</p>
-      </AnimacionDeSubida>
+      <p class="text-6xl font-bold text-white mb-4">{subtitle}</p>
     )}
     <slot />
   </div>

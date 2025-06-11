@@ -1,13 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Card } from '../components/Card';
+import { AnimacionSubida } from '../components/AnimacionSubida';
 ---
 
 <Layout title="Página de Inicio">
 	<div class="min-h-screen flex items-center justify-center">
-		<Card 
-			title="bienvenidos a la documentación" 
-			subtitle="boxware"
-		/>
+		<AnimacionSubida duration={1200}>
+			<Card 
+				title="bienvenidos a la documentación" 
+				subtitle="boxware"
+			/>
+		</AnimacionSubida>
 	</div>
 </Layout>
