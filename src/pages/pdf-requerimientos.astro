@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="PDF Requerimientos" hideNavMenu={false}>
+	<div class="w-full max-w-6xl mx-auto">
+		<!-- Encabezado del visor PDF -->
+		<div class="bg-slate-800 p-4 rounded-t-xl border-b border-slate-700/50 flex justify-between items-center">
+			<h2 class="text-xl font-semibold text-blue-300">Documento de Requerimientos</h2>
+		</div>
+		
+		<!-- Barra de herramientas del PDF -->
+		
+		
+		<!-- Contenido del PDF a pantalla completa -->
+		<div class="bg-slate-900/80 flex-grow rounded-b-xl overflow-hidden shadow-2xl border border-slate-700/30">
+			<object 
+				data="/requerimientos.pdf" 
+				type="application/pdf" 
+				class="w-full h-full min-h-[calc(100vh-200px)]"
+			>
+				<div class="flex flex-col items-center justify-center h-full bg-gray-100 dark:bg-gray-800 p-8 text-center">
+					<p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+						Tu navegador no puede mostrar el PDF directamente.
+					</p>
+					<a 
+						href="/requerimientos.pdf" 
+						target="_blank" 
+						class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-md"
+					>
+						Descargar PDF
+					</a>
+				</div>
+			</object>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	/* Asegurarse de que el visor de PDF tenga la altura adecuada */
+	object {
+		min-height: 80vh;
+	}
+</style> 

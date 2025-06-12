@@ -7,13 +7,16 @@ import NavigationMenu from './NavigationMenu.astro';
 // Propiedades para personalizar el sidebar
 interface Props {
   isAdmin?: boolean;
+  hideNavMenu?: boolean;
 }
 
 const { 
-  isAdmin = false 
+  isAdmin = false,
+  hideNavMenu = false
 } = Astro.props;
 const currentPath = Astro.url.pathname;
 const isFelipage = currentPath === '/felipe';
+const isRequirimientos = currentPath === '/requirimientos' || currentPath === '/pdf-requerimientos';
 
 // Ya no necesitamos la configuración del botón
 
@@ -25,18 +28,26 @@ const isFelipage = currentPath === '/felipe';
     <div class="p-5 border-b border-slate-700/30">
       <div class="flex items-center gap-3">
         <div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-2.5 rounded-xl shadow-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
+          {isRequirimientos ? (
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          )}
         </div>
-        <h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-indigo-300">API Docs</h1>
+        <h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-indigo-300">
+          {isRequirimientos ? 'Requerimientos' : 'API Docs'}
+        </h1>
       </div>
     </div>
     
     <!-- Se eliminó el botón de Documentación Técnica -->
     
-    <!-- Componente de navegación (solo se muestra si no estamos en la página de Felipe) -->
-    {!isFelipage && (
+    <!-- Componente de navegación (solo se muestra si no estamos en la página de Felipe y hideNavMenu es false) -->
+    {!isFelipage && !hideNavMenu && (
       <div class="flex-grow">
         <NavigationMenu isAdmin={isAdmin} />
       </div>
