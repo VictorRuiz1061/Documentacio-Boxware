@@ -4,61 +4,79 @@ import CopyButton from '../CopyButton.astro';
 
 interface Props {
   title: string;
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-  endpoint: string;
-  description: string;
-  requestBody?: Record<string, any>;
+  description?: string;
   hasGlassEffect?: boolean;
 }
 
 const {
   title,
-  method,
-  endpoint,
   description,
-  requestBody,
   hasGlassEffect = true,
 } = Astro.props;
-
-// Definir el color del método HTTP
-const methodColors = {
-  GET: 'bg-blue-500',
-  POST: 'bg-green-500',
-  PUT: 'bg-yellow-500',
-  DELETE: 'bg-red-500',
-  PATCH: 'bg-purple-500'
-} as const;
-
-const methodColor = methodColors[method];
 ---
 
-<div class={`rounded-xl overflow-hidden ${hasGlassEffect ? 'backdrop-blur-md bg-slate-800/60 border border-slate-700' : 'bg-white dark:bg-gray-800'}`}>
-  <div class="p-6">
-    <div class="flex items-start justify-between">
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p class="text-slate-300 text-sm mb-4">{description}</p>
-      </div>
-      <span class={`${methodColor} text-white text-sm font-medium px-3 py-1 rounded-full`}>
-        {method}
-      </span>
-    </div>
-
-    <div class="mt-4">
-      <div class="flex items-center space-x-2 bg-slate-900/50 p-3 rounded-lg">
-        <code class="text-indigo-300 text-sm flex-1">{endpoint}</code>
-        <CopyButton textToCopy={endpoint} />
-      </div>
-
-      {requestBody && (
-        <div class="mt-4">
-          <h4 class="text-sm font-medium text-slate-300 mb-2">Request Body:</h4>
-          <div class="bg-slate-900/50 p-3 rounded-lg relative group">
-            <pre class="text-indigo-300 text-sm overflow-x-auto"><code>{JSON.stringify(requestBody, null, 2)}</code></pre>
-            <CopyButton textToCopy={JSON.stringify(requestBody, null, 2)} className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-        </div>
+<div class={`
+  rounded-2xl 
+  overflow-hidden 
+  ${hasGlassEffect ? 'backdrop-blur-lg bg-slate-800/40 border border-slate-700/50' : 'bg-white dark:bg-gray-800'}
+  shadow-2xl
+  shadow-blue-500/10
+  hover:shadow-blue-500/20
+  transition-all
+  duration-300
+  hover:scale-[1.02]
+  transform
+`}>
+  <div class="p-12 relative">
+    <!-- Efecto de brillo superior -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+    
+    <div class="flex flex-col items-center justify-center text-center relative z-10">
+      <h1 class="
+        text-6xl 
+        font-bold 
+        text-transparent 
+        bg-clip-text 
+        bg-gradient-to-r 
+        from-blue-400 
+        via-indigo-400 
+        to-purple-400 
+        mb-8
+        tracking-tight
+        animate-gradient
+      ">{title}</h1>
+      
+      {description && (
+        <p class="
+          text-slate-300 
+          text-xl 
+          max-w-2xl 
+          leading-relaxed
+          font-light
+        ">{description}</p>
       )}
     </div>
+
+    <!-- Efecto de brillo inferior -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
   </div>
 </div>
+
+<style>
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% auto;
+    animation: gradient 8s ease infinite;
+  }
+</style>
