@@ -6,6 +6,7 @@ interface Props {
   fullWidth?: boolean;
   icon?: string;
   class?: string;
+  target?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   fullWidth = false,
   icon,
   class: customClass = '',
+  target,
 } = Astro.props;
 
 // Estilos según la variante
@@ -38,7 +40,7 @@ const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${f
 const Element = href ? 'a' : 'button';
 ---
 
-<Element href={href} class={classes}>
+<Element href={href} class={classes} target={target}>
   {icon && (
     <span class="flex items-center justify-center">
       <slot name="icon" />

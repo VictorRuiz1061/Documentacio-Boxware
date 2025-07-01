@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Button } from '../../components/Button';
+
+const pdfUrl = '/requerimientos-v02.pdf';
+---
+
+<Layout title="Requerimientos" hideNavMenu={true}>
+    <div class="fixed top-4 right-4 z-10 flex gap-4">
+        <Button 
+            href="/"
+            variant="outline"
+            size="lg"
+            class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+        >
+            Volver al Inicio
+        </Button>
+    </div>
+
+    <div class="min-h-screen w-full p-8 flex items-center justify-center">
+        <div class="w-[85%] max-w-5xl h-[80vh] bg-white/5 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="w-full h-full p-4 bg-slate-800/30">
+                <iframe 
+                    src={pdfUrl}
+                    class="w-full h-full rounded-xl border-none"
+                    style="background: white;"
+                    title="Requerimientos del Sistema"
+                >
+                </iframe>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    /* Estilos para mejorar la visualización */
+    iframe {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Asegurar que el contenedor principal ocupe todo el espacio disponible */
+    div:has(> iframe) {
+        margin: 0;
+        padding: 0;
+    }
+</style> 

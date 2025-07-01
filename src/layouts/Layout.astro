@@ -1,6 +1,7 @@
 ---
 import '../styles/tailwind.css';
 import { Sidebar } from '../components/Sidebar';
+import { Button } from '../components/Button';
 
 interface Props {
   title?: string;
@@ -15,6 +16,9 @@ const {
   hideSidebar = false,
   hideNavMenu = false
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const isRequerimientos = currentPath === '/ver-requerimientos';
 ---
 
 <!doctype html>
@@ -34,11 +38,25 @@ const {
 		<!-- Canvas de fondo animado con estrellas 3D (se crea mediante JavaScript) -->
 		<div id="bg-canvas" class="fixed inset-0 -z-10"></div>
 		
+		<!-- Botón Ver Requerimientos -->
+		{!isRequerimientos && (
+			<div class="fixed top-4 right-4 z-50">
+				<Button 
+					href="/ver-requerimientos" 
+					variant="primary" 
+					size="lg"
+					class="bg-blue-600 hover:bg-blue-700 shadow-lg"
+				>
+					Ver Requerimientos
+				</Button>
+			</div>
+		)}
+
 		<!-- Sidebar component -->
 		{!hideSidebar && (
 			<Sidebar 
 				isAdmin={isAdmin}
-                hideNavMenu={hideNavMenu}
+				hideNavMenu={hideNavMenu}
 			/>
 		)}
 
