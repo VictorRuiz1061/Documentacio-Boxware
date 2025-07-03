@@ -1,0 +1,347 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CopyButton from '../../components/CopyButton.astro';
+import ApiUrl from '../../components/ApiUrl.astro';
+import { AnimacionSubida } from '../../components/AnimacionSubida';
+---
+
+<Layout title="Documentación API de Autenticación">
+  <div class="max-w-4xl mx-auto pt-10 pb-20">
+    <AnimacionSubida duration={800}>
+      <h1 class="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600">API de Autenticación</h1>
+    </AnimacionSubida>
+    
+    <div class="space-y-12">
+      <!-- Introducción -->
+      <AnimacionSubida delay={200} duration={800}>
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Introducción</h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Esta API proporciona endpoints para la autenticación y gestión de cuentas de usuario en el sistema. Permite iniciar sesión, registrar nuevos usuarios, recuperar contraseñas y restablecer contraseñas.
+          </p>  
+          <p class="text-gray-700 dark:text-gray-300">
+            Todas las respuestas son devueltas en formato JSON y siguen estándares HTTP para los códigos de estado.
+          </p>
+        </section>
+      </AnimacionSubida>
+
+      <!-- Base URL -->
+      <AnimacionSubida delay={400} duration={800}>
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">URL Base</h2>
+          <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg font-mono text-sm relative">
+            <CopyButton />
+            <ApiUrl endpoint="/" tag="code" />
+          </div>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">
+            Todos los endpoints descritos en esta documentación deben ser precedidos por esta URL base.
+          </p>
+        </section>
+      </AnimacionSubida>
+
+      <!-- Modelo de datos -->
+      <AnimacionSubida delay={500} duration={800}>
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Modelo de datos</h2>
+          
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Usuario (Autenticación)</h3>
+          <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-8">
+            <thead class="bg-gray-100 dark:bg-gray-900">
+              <tr>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">email</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Correo electrónico del usuario (identificador único)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">contrasena</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Contraseña del usuario (almacenada con hash)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">token</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Token JWT para autenticación</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Recuperación de Contraseña</h3>
+          <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+            <thead class="bg-gray-100 dark:bg-gray-900">
+              <tr>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Campo</th>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">email</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Correo electrónico del usuario</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">codigo</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Código de verificación enviado al correo</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">fecha_expiracion</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">DateTime</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Fecha y hora de expiración del código (15 minutos)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">nuevaContrasena</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">String</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Nueva contraseña a establecer (solo en solicitudes de restablecimiento)</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </AnimacionSubida>
+
+      <!-- Endpoints -->
+      <AnimacionSubida delay={700} duration={800}>
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Endpoints</h2>
+          
+          <!-- POST /validacion -->
+          <div class="mb-12">
+            <div class="flex items-center gap-3 mb-4 relative">
+              <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+              <CopyButton />
+              <ApiUrl endpoint="/validacion" tag="h3" />
+            </div>
+            <p class="mb-4 text-gray-700 dark:text-gray-300">
+              Valida las credenciales de un usuario y devuelve un token de autenticación.
+            </p>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <CopyButton />
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "email": "admin@admin.com",
+  "contrasena": "admin"
+&#125;</code></pre>
+              </div>
+            </div>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "usuario": &#123;
+    "id_usuario": 1,
+    "nombre": "Administrador",
+    "apellido": "Sistema",
+    "email": "admin@admin.com",
+    "rol_id": 1
+  &#125;
+&#125;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+              <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Autenticación exitosa</li>
+                <li><span class="font-mono text-yellow-600 dark:text-yellow-400">401</span> - Credenciales inválidas</li>
+                <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- POST /registrar -->
+          <div class="mb-12">
+            <div class="flex items-center gap-3 mb-4 relative">
+              <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+              <CopyButton />
+              <ApiUrl endpoint="/registrar" tag="h3" />
+            </div>
+            <p class="mb-4 text-gray-700 dark:text-gray-300">
+              Registra un nuevo usuario en el sistema.
+            </p>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <CopyButton />
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "nombre": "Victor Manuel",
+  "apellido": "Ruiz Roque",
+  "edad": 19,
+  "cedula": "121542",
+  "email": "nose@gmail.com",
+  "contrasena": "123456",
+  "telefono": "3219014",
+  "estado": true,
+  "fecha_registro": "2025-05-02T23:02:49.511Z",
+  "rol_id": 1
+&#125;</code></pre>
+              </div>
+            </div>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "mensaje": "Usuario registrado exitosamente",
+  "usuario": &#123;
+    "id_usuario": 10,
+    "nombre": "Victor Manuel",
+    "apellido": "Ruiz Roque",
+    "email": "nose@gmail.com"
+  &#125;
+&#125;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+              <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                <li><span class="font-mono text-green-600 dark:text-green-400">201</span> - Usuario registrado exitosamente</li>
+                <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - Datos inválidos o email ya registrado</li>
+                <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- POST /recuperar -->
+          <div class="mb-12">
+            <div class="flex items-center gap-3 mb-4 relative">
+              <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+              <CopyButton />
+              <ApiUrl endpoint="/recuperar" tag="h3" />
+            </div>
+            <p class="mb-4 text-gray-700 dark:text-gray-300">
+              Solicita un código de recuperación para restablecer la contraseña de un usuario.
+            </p>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <CopyButton />
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "email": "vicr357477@gmail.com"
+&#125;</code></pre>
+              </div>
+            </div>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "mensaje": "Se ha enviado un código de recuperación a tu correo electrónico"
+&#125;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+              <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Código enviado exitosamente</li>
+                <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Email no encontrado</li>
+                <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- POST /restablecer -->
+          <div class="mb-12">
+            <div class="flex items-center gap-3 mb-4 relative">
+              <span class="bg-yellow-500 text-white px-3 py-1 rounded-md font-bold text-sm">POST</span>
+              <CopyButton />
+              <ApiUrl endpoint="/restablecer" tag="h3" />
+            </div>
+            <p class="mb-4 text-gray-700 dark:text-gray-300">
+              Restablece la contraseña de un usuario utilizando el código de recuperación.
+            </p>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Cuerpo de la solicitud</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <CopyButton />
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "email": "vicr357477@gmail.com", 
+  "codigo": "387016",
+  "nuevaContrasena": "Victor1061"
+&#125;</code></pre>
+              </div>
+            </div>
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Respuesta</h4>
+              <div class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg relative">
+                <pre class="language-json overflow-x-auto text-sm"><code>&#123;
+  "mensaje": "Contraseña restablecida exitosamente"
+&#125;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
+              <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Contraseña restablecida exitosamente</li>
+                <li><span class="font-mono text-yellow-600 dark:text-yellow-400">400</span> - Código inválido o expirado</li>
+                <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Email no encontrado</li>
+                <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </AnimacionSubida>
+
+      <!-- Códigos de error -->
+      <AnimacionSubida delay={900} duration={800}>
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <h2 class="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">Códigos de Error</h2>
+          <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+            <thead class="bg-gray-100 dark:bg-gray-900">
+              <tr>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Código</th>
+                <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-green-600 dark:text-green-400">200</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Operación exitosa</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-green-600 dark:text-green-400">201</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Recurso creado exitosamente</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-yellow-600 dark:text-yellow-400">400</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Solicitud incorrecta</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-yellow-600 dark:text-yellow-400">401</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">No autorizado</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-yellow-600 dark:text-yellow-400">404</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Recurso no encontrado</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono text-red-600 dark:text-red-400">500</td>
+                <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Error interno del servidor</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </AnimacionSubida>
+
+      <!-- Notas de seguridad -->
+      <AnimacionSubida delay={1100} duration={800}>
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <h2 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Notas de Seguridad</h2>
+          <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-3">
+            <li>Las contraseñas se almacenan de forma segura utilizando algoritmos de hash.</li>
+            <li>Los tokens de autenticación tienen un tiempo de expiración limitado.</li>
+            <li>Los códigos de recuperación de contraseña expiran después de 15 minutos.</li>
+            <li>Se recomienda utilizar HTTPS para todas las comunicaciones con la API.</li>
+            <li>Las contraseñas deben tener al menos 6 caracteres y combinar letras y números para mayor seguridad.</li>
+          </ul>
+        </section>
+      </AnimacionSubida>
+    </div>
+  </div>
+</Layout> 
