@@ -1,0 +1,125 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import { Button } from '../../../components/Button';
+---
+
+<RequerimientosLayout title="Inicio - Requerimientos">
+    <!-- Requerimientos Sidebar -->
+    <RequerimientosSidebar />
+    
+    <div class="fixed top-4 right-4 z-10 flex gap-4">
+        <Button 
+            href="/ver-requerimientos"
+            variant="outline"
+            size="lg"
+            class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+        >
+            Volver a Requerimientos
+        </Button>
+    </div>
+
+    <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+        <!-- Encabezado -->
+        <div class="w-full max-w-4xl mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Requerimiento: Inicio</h1>
+            <p class="text-slate-300">ID: 1 | Prioridad: <span class="text-yellow-400 font-medium">Alta</span></p>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="w-full max-w-4xl bg-slate-800/60 backdrop-blur-md rounded-xl shadow-xl overflow-hidden">
+            <!-- Descripción del requerimiento -->
+            <div class="p-6 border-b border-slate-700/50">
+                <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+                <p class="text-slate-300 leading-relaxed">
+                    En este espacio, proporcionamos una interfaz de acceso para que los usuarios puedan iniciar sesión en nuestro sistema. 
+                    Si el usuario no cuenta con una cuenta registrada, se le ofrece la opción de realizar un registro previo. 
+                    Una vez completado el registro, el usuario podrá acceder a todas las funcionalidades disponibles en nuestra plataforma.
+                </p>
+            </div>
+
+            <!-- Tabla de detalles -->
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-white mb-4">Especificaciones</h2>
+                
+                <!-- Rol -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-blue-400 mb-2">Rol</h3>
+                    <p class="text-slate-300">Usuario del sistema</p>
+                </div>
+                
+                <!-- Entradas -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-blue-400 mb-2">Entradas</h3>
+                    <div class="bg-slate-700/50 rounded-lg p-4">
+                        <p class="text-white mb-2 font-medium">Debe permitir iniciar sesión con:</p>
+                        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2">
+                            <li>Correo</li>
+                            <li>Contraseña</li>
+                        </ul>
+                        
+                        <p class="text-white mb-2 mt-4 font-medium">Debe permitir registrar un usuario con:</p>
+                        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2">
+                            <li>Nombre</li>
+                            <li>Apellido</li>
+                            <li>Email</li>
+                            <li>Teléfono</li>
+                            <li>Edad</li>
+                            <li>Cédula</li>
+                            <li>Contraseña</li>
+                            <li>Confirmación de cuenta</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Salidas -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-blue-400 mb-2">Salidas</h3>
+                    <div class="bg-slate-700/50 rounded-lg p-4">
+                        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2">
+                            <li>Registro exitoso del usuario</li>
+                            <li>Inicio de sesión exitoso</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mockup de la interfaz -->
+        <div class="w-full max-w-4xl mt-8 bg-slate-800/60 backdrop-blur-md rounded-xl shadow-xl overflow-hidden">
+            <div class="p-6 border-b border-slate-700/50">
+                <h2 class="text-xl font-semibold text-white mb-4">Mockup de Interfaz</h2>
+            </div>
+            <div class="p-6 flex justify-center">
+                <div class="relative w-full max-w-2xl rounded-lg overflow-hidden shadow-2xl">
+                    <img 
+                        src="/mockup-inicio.jpg" 
+                        alt="Mockup de la interfaz de inicio" 
+                        class="w-full"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22 preserveAspectRatio=%22none%22%3E%3Crect fill=%22%23374151%22 width=%221000%22 height=%22600%22/%3E%3Ctext fill=%22%23FFFFFF%22 font-family=%22Arial%22 font-size=%2230%22 x=%22500%22 y=%22300%22 text-anchor=%22middle%22%3EBienvenido a nuestra plataforma Boxware!%3C/text%3E%3C/svg%3E';"
+                    />
+                    <div class="absolute inset-0 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm">
+                        <div class="text-center p-6 bg-slate-800/80 backdrop-blur-md rounded-lg shadow-xl max-w-md">
+                            <h3 class="text-2xl font-bold text-white mb-4">¡Bienvenido a nuestra plataforma Boxware!</h3>
+                            <div class="flex justify-center space-x-4 mt-4">
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                                    Iniciar Sesión
+                                </button>
+                                <button class="bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500/10 px-4 py-2 rounded-md transition-colors">
+                                    Registrarse
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</RequerimientosLayout>
+
+<style>
+    /* Estilos adicionales específicos para esta página */
+    ul li::marker {
+        color: rgba(59, 130, 246, 0.7);
+    }
+</style>
