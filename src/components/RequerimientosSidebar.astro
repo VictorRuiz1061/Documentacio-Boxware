@@ -1,0 +1,70 @@
+---
+// Component for the Requerimientos sidebar navigation
+const currentPath = Astro.url.pathname;
+
+// Menu items from the table
+const menuItems = [
+  { name: 'Requerimiento', path: '/ver-requerimientos' },
+  { name: 'Inicio', path: '/ver-requerimientos/inicio' },
+  { name: 'Inicio de sesión', path: '/ver-requerimientos/inicio-sesion' },
+  { name: 'Registro', path: '/ver-requerimientos/registro' },
+  { name: 'Dashboard', path: '/ver-requerimientos/dashboard' },
+  { name: 'Módulos', path: '/ver-requerimientos/modulos' },
+  { name: 'Usuarios', path: '/ver-requerimientos/usuarios' },
+  { name: 'Roles', path: '/ver-requerimientos/roles' },
+  { name: 'Permisos', path: '/ver-requerimientos/permisos' },
+  { name: 'Materiales', path: '/ver-requerimientos/materiales' },
+  { name: 'Categorías elementos', path: '/ver-requerimientos/categorias-elementos' },
+  { name: 'Tipos de materiales', path: '/ver-requerimientos/tipos-materiales' },
+  { name: 'Movimientos', path: '/ver-requerimientos/movimientos' },
+  { name: 'Tipos de movimientos', path: '/ver-requerimientos/tipos-movimientos' },
+  { name: 'Sedes', path: '/ver-requerimientos/sedes' },
+  { name: 'Centros', path: '/ver-requerimientos/centros' },
+  { name: 'Municipios', path: '/ver-requerimientos/municipios' },
+  { name: 'Áreas', path: '/ver-requerimientos/areas' },
+  { name: 'Sitios', path: '/ver-requerimientos/sitios' },
+  { name: 'Tipos de sitios', path: '/ver-requerimientos/tipos-sitios' },
+  { name: 'Programas', path: '/ver-requerimientos/programas' },
+  { name: 'Fichas', path: '/ver-requerimientos/fichas' },
+  { name: 'Informes y reportes', path: '/ver-requerimientos/informes-reportes' },
+  { name: 'Notificaciones', path: '/ver-requerimientos/notificaciones' },
+  { name: 'Ajustes', path: '/ver-requerimientos/ajustes' },
+  { name: 'Cerrar sesión', path: '/ver-requerimientos/cerrar-sesion' },
+  { name: 'Recuperación de cuenta', path: '/ver-requerimientos/recuperacion-cuenta' }
+];
+---
+
+<!-- Sidebar for Requerimientos -->
+<div class="fixed left-0 top-0 h-full w-64 bg-slate-800/90 border-r border-slate-700/50 overflow-y-auto z-10">
+  <!-- Header -->
+  <div class="p-4">
+    <div class="flex items-center space-x-2">
+      <div class="bg-blue-600 p-2 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </div>
+      <h1 class="text-xl font-bold text-white">Requerimientos</h1>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="mt-2">
+    <ul class="space-y-1 px-3">
+      {menuItems.map((item) => (
+        <li>
+          <a 
+            href={item.path}
+            class={`flex items-center px-4 py-2.5 text-sm rounded-lg transition-colors ${
+              currentPath === item.path 
+                ? 'bg-gradient-to-r from-blue-700/60 to-indigo-700/60 text-white font-medium shadow-md' 
+                : 'text-indigo-100 hover:bg-white/10'
+            }`}
+          >
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>

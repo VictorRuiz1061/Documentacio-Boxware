@@ -1,11 +1,15 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import RequerimientosLayout from '../../layouts/RequerimientosLayout.astro';
 import { Button } from '../../components/Button';
+import RequerimientosSidebar from '../../components/RequerimientosSidebar.astro';
 
 const pdfUrl = '/requerimientos-v02.pdf';
 ---
 
-<Layout title="Requerimientos" hideNavMenu={true}>
+<RequerimientosLayout title="Requerimientos">
+    <!-- Requerimientos Sidebar - Only visible on this page -->
+    <RequerimientosSidebar />
+    
     <div class="fixed top-4 right-4 z-10 flex gap-4">
         <Button 
             href="/"
@@ -17,7 +21,7 @@ const pdfUrl = '/requerimientos-v02.pdf';
         </Button>
     </div>
 
-    <div class="min-h-screen w-full p-8 flex items-center justify-center">
+    <div class="min-h-screen w-full p-8 pl-72 flex items-center justify-center">
         <div class="w-[85%] max-w-5xl h-[80vh] bg-white/5 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden">
             <div class="w-full h-full p-4 bg-slate-800/30">
                 <iframe 
@@ -30,7 +34,7 @@ const pdfUrl = '/requerimientos-v02.pdf';
             </div>
         </div>
     </div>
-</Layout>
+</RequerimientosLayout>
 
 <style>
     /* Estilos para mejorar la visualización */
