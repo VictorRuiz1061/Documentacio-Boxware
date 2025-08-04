@@ -2,12 +2,10 @@
 import RequerimientosLayout from '../../layouts/RequerimientosLayout.astro';
 import { Button } from '../../components/Button';
 import RequerimientosSidebar from '../../components/RequerimientosSidebar.astro';
-
-const pdfUrl = '/requerimientos-v02.pdf';
 ---
 
-<RequerimientosLayout title="Requerimientos">
-    <!-- Requerimientos Sidebar - Only visible on this page -->
+<RequerimientosLayout title="Especificación de Requerimientos de Software">
+    <!-- Sidebar de Requisitos -->
     <RequerimientosSidebar />
     
     <div class="fixed top-4 right-4 z-10 flex gap-4">
@@ -21,32 +19,25 @@ const pdfUrl = '/requerimientos-v02.pdf';
         </Button>
     </div>
 
-    <div class="min-h-screen w-full p-8 pl-72 flex items-center justify-center">
-        <div class="w-[85%] max-w-5xl h-[80vh] bg-white/5 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden">
-            <div class="w-full h-full p-4 bg-slate-800/30">
-                <iframe 
-                    src={pdfUrl}
-                    class="w-full h-full rounded-xl border-none"
-                    style="background: white;"
-                    title="Requerimientos del Sistema"
-                >
-                </iframe>
+    <div class="min-h-screen w-full p-8 pl-72">
+        <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg rounded-2xl shadow-2xl p-8">
+            <h1 class="text-3xl font-bold text-center mb-2">Especificación de Requerimientos de Software</h1>
+            <h2 class="text-2xl text-center mb-8 text-slate-200">Boxware</h2>
+            <p class="text-center text-lg mb-12 text-slate-200">Versión: 1.0.0</p>
+            
+            <div class="max-w-none text-slate-200">
+                <div class="p-6 bg-blue-900/20 rounded-xl border border-blue-800/50">
+                    <p class="text-slate-300 italic text-justify">
+                        NOTA: Este y el resto de textos incluidos en cursiva de color azul se vinculan con el fin de proporcionar 
+                        una guía para el diligenciamiento de este documento y debe ser eliminado antes de realizarse la 
+                        entrega del mismo. Los textos para el diligenciamiento de la plantilla no deben ser entregados en 
+                        cursiva y tendrán el color negro, todo el documento deberá contar con el mismo tipo de letra, 
+                        tamaño y los párrafos deberán estar justificados, no se deberá cambiar la estructura del mismo ni 
+                        alterar el orden anexando o eliminando secciones sin previa autorización, en caso de que existan 
+                        secciones que no requieran su diligenciamiento, se debe agregar la sigla NA (No Aplica)
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</RequerimientosLayout>
-
-<style>
-    /* Estilos para mejorar la visualización */
-    iframe {
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Asegurar que el contenedor principal ocupe todo el espacio disponible */
-    div:has(> iframe) {
-        margin: 0;
-        padding: 0;
-    }
-</style> 
+</RequerimientosLayout> 
