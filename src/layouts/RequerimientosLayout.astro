@@ -15,9 +15,16 @@ const { title } = Astro.props;
     <title>{title} | Boxware</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <!-- Three.js para animación 3D -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Script de fondo 3D -->
+    <script is:inline src="/js/fondo3d.js"></script>
   </head>
   <body class="bg-slate-900 text-slate-100 min-h-screen">
-    <div class="flex min-h-screen">
+    <!-- Canvas de fondo animado con estrellas 3D (se crea mediante JavaScript) -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    
+    <div class="flex min-h-screen relative z-10">
       <!-- Content will be injected here -->
       <slot />
     </div>
