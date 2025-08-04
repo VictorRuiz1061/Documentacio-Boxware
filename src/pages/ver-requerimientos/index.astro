@@ -189,6 +189,122 @@ import RequerimientosSidebar from '../../components/RequerimientosSidebar.astro'
                                 al proceso de levantamiento de información con el cliente, esto se debe mencionar previamente.
                             </p>
                         </div>
+
+                        <!-- 2. Descripción general -->
+                        <div class="mt-12">
+                            <h2 class="text-2xl font-bold mb-6 text-blue-400">2. Descripción general</h2>
+                            
+                            <!-- 2.1 Perspectiva del producto -->
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-3 text-blue-300">2.1 Perspectiva del producto</h3>
+                                <p class="mb-4">
+                                    En este apartado se debe brindar una descripción general del sistema a construir, se debe dar la perspectiva del producto explicando en que consiste la herramienta, esta sección brinda una visión general del software como complemento a información que se brindará en secciones anteriores.
+                                </p>
+
+                                <!-- 2.1.1 Interfaces del usuario -->
+                                <div class="ml-6 mt-4">
+                                    <h4 class="text-lg font-semibold mb-3 text-blue-200">2.1.1 Interfaces del usuario</h4>
+                                    <p class="mb-4">
+                                        Descripción de cada una de las interfaces (no imágenes) se deberá definir en ítems el nombre de las interfaces de usuario a construir y una pequeña descripción de la misma.
+                                    </p>
+                                    <p class="text-slate-300 italic mb-4">
+                                        Ej: Ventana login: Esta ventana permitirá al usuario iniciar sesión en el sistema mediante un rol definido.
+                                    </p>
+                                </div>
+
+                                <!-- 2.1.2 Mapa de Navegación -->
+                                <div class="ml-6 mt-6">
+                                    <h4 class="text-lg font-semibold mb-3 text-blue-200">2.1.2 Mapa de Navegación</h4>
+                                    <p>
+                                        Se deberá construir un mapa de navegación donde se muestre de forma ordenada las interfaces de usuario descritas en la sección anterior, se mostrará una imagen tipo mapa conceptual.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 2.2 Características del producto -->
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-3 text-blue-300">2.2. Características del producto</h3>
+                                <p class="mb-4">
+                                    Descripción de las principales características del sistema ej: el sistema será desarrollado en el lenguaje de programación xxxxx, será una herramienta web, permitirá realizar procesos de gestión de usuarios, entre otras funcionalidades a nivel general, esto se realizará mediante ítems.
+                                </p>
+
+                                <!-- 2.2.1 Funciones del producto -->
+                                <div class="ml-6 mt-4">
+                                    <h4 class="text-lg font-semibold mb-3 text-blue-200">2.2.1 Funciones del producto</h4>
+                                    <p class="mb-4">
+                                        Descripción de cada uno de los módulos del sistema, un módulo puede considerarse como un conjunto de funcionalidades, se deberá reemplazar la palabra "módulo" por el nombre del módulo y debajo su descripción. ej:
+                                    </p>
+                                    
+                                    <!-- 2.2.1.1 Gestión de usuarios -->
+                                    <div class="ml-6 mb-4">
+                                        <h5 class="font-semibold mb-2 text-blue-100">2.2.1.1 Gestión de usuarios.</h5>
+                                        <p class="mb-4">
+                                            Este módulo permitirá realizar la gestión de usuarios mediante los procesos de registro, consulta, actualización y eliminación.
+                                        </p>
+                                    </div>
+
+                                    <!-- Módulos adicionales -->
+                                    <div class="ml-6 space-y-4">
+                                        <div>
+                                            <h5 class="font-semibold text-blue-100">2.2.1.2 Modulo 1</h5>
+                                            <p class="text-slate-300 italic">Descripción del módulo 1</p>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-semibold text-blue-100">2.2.1.3 Modulo 2</h5>
+                                            <p class="text-slate-300 italic">Descripción del módulo 2</p>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-semibold text-blue-100">2.2.1.4 Modulo 3</h5>
+                                            <p class="text-slate-300 italic">Descripción del módulo 3</p>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-semibold text-blue-100">2.2.1.n Modulo n</h5>
+                                            <p class="text-slate-300 italic">Descripción del módulo n</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2.3 Características del usuario -->
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-3 text-blue-300">2.3 Características del usuario</h3>
+                                <p class="mb-4">
+                                    Descripción de cada uno de los usuarios del sistema, un usuario del sistema será el tipo de rol con el que las personas pueden ingresar a la herramienta, se deberá reemplazar la palabra "tipo de usuario" por el nombre del usuario y debajo su descripción ej:
+                                </p>
+                                
+                                <!-- 2.3.1 Administrador -->
+                                <div class="ml-6 mb-4">
+                                    <h4 class="text-lg font-semibold mb-2 text-blue-200">2.3.1 Administrador</h4>
+                                    <p class="mb-4">
+                                        Este usuario será el encargado de realizar los procesos de xxxxx y xxxxx dentro del sistema, este podrá tener acceso total al mismo etc etc etc
+                                    </p>
+                                </div>
+
+                                <!-- Otros tipos de usuarios -->
+                                <div class="ml-6 space-y-4">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-blue-200">2.3.2 tipo de usuario 1</h4>
+                                        <p class="text-slate-300 italic">Descripción del tipo de usuario 1</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-blue-200">2.3.3 tipo de usuario 2</h4>
+                                        <p class="text-slate-300 italic">Descripción del tipo de usuario 2</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-blue-200">2.3.4 tipo de usuario 3</h4>
+                                        <p class="text-slate-300 italic">Descripción del tipo de usuario 3</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-blue-200">2.3.5 tipo de usuario 4</h4>
+                                        <p class="text-slate-300 italic">Descripción del tipo de usuario 4</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-blue-200">2.3.n tipo de usuario n</h4>
+                                        <p class="text-slate-300 italic">Descripción del tipo de usuario n</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
