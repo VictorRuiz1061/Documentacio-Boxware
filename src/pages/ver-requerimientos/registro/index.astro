@@ -1,0 +1,159 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+---
+
+<RequerimientosLayout title="Registro - Requerimientos">
+    <RequerimientosSidebar />
+    
+    <div class="fixed top-4 right-4 z-10 flex gap-4">
+        <Button 
+            href="/ver-requerimientos"
+            variant="outline"
+            size="lg"
+            class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+        >
+            Volver a Requerimientos
+        </Button>
+    </div>
+
+    <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+        <!-- Encabezado -->
+        <div class="w-full max-w-4xl mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Requerimiento: Registro de Usuario</h1>
+            <p class="text-slate-300">ID: 3 | Prioridad: <span class="text-yellow-400 font-medium">Alta</span></p>
+            <div class="h-1 bg-gradient-to-r from-yellow-500 to-transparent rounded-full mt-2"></div>
+        </div>
+
+        <!-- Contenido del Requerimiento -->
+        <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <!-- Sección de Descripción -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+                <p class="text-gray-300 mb-4">
+                    Este requerimiento se enfoca en permitir a los nuevos usuarios crear una cuenta en el sistema, 
+                    lo cual es fundamental para establecer una base de usuarios sólida y facilitar la 
+                    personalización de la experiencia del usuario.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="px-3 py-1 bg-yellow-900/50 text-yellow-300 text-sm rounded-full">Registro</span>
+                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Autenticación</span>
+                    <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">UI/UX</span>
+                </div>
+            </div>
+
+            <!-- Sección de Requisitos Funcionales -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Entradas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Nombre</li>
+                    <li>Apellido</li>
+                    <li>Correo electrónico</li>
+                    <li>Teléfono</li>
+                    <li>Edad</li>
+                    <li>Contraseña</li>
+                    <li>Confirmación de contraseña</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Salidas -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Salidas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Usuario registrado exitosamente</li>
+                    <li>Redirección al apartado de inicio de sesión</li>
+                    <li>Error al registrar usuario</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Diseño -->
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-white mb-6">Diseño del Formulario</h2>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <div class="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow">
+                        <h3 class="text-2xl font-bold text-white text-center mb-6">Crear Cuenta</h3>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
+                                    <input type="text" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Tu nombre">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">Apellido</label>
+                                    <input type="text" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Tu apellido">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1">Correo electrónico</label>
+                                <input type="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="tu@email.com">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">Teléfono</label>
+                                    <input type="tel" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="+51 999 999 999">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-1">Edad</label>
+                                    <input type="number" min="18" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="18">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1">Contraseña</label>
+                                <div class="relative">
+                                    <input type="password" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white pr-10 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="••••••••">
+                                    <button type="button" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-300">
+                                        👁️
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1">Confirmar Contraseña</label>
+                                <div class="relative">
+                                    <input type="password" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white pr-10 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="••••••••">
+                                    <button type="button" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-300">
+                                        👁️
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-2">
+                                <button type="submit" class="w-full bg-yellow-600 text-white py-2 px-4 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-colors">
+                                    Registrarse
+                                </button>
+                            </div>
+                            
+                            <div class="text-center pt-2">
+                                <p class="text-sm text-gray-400">
+                                    ¿Ya tienes una cuenta? 
+                                    <a href="/ver-requerimientos/inicio-sesion" class="text-yellow-400 hover:text-yellow-300 font-medium">Inicia sesión</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</RequerimientosLayout>
+
+<style>
+    /* Estilos adicionales específicos para esta página */
+    ul li::marker {
+        color: rgba(234, 179, 8, 0.7);
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+</style>
