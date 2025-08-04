@@ -38,6 +38,70 @@ import RequerimientosSidebar from '../../components/RequerimientosSidebar.astro'
                     </p>
                 </div>
             </div>
+
+            <!-- Historial de Revisión -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">HISTORIAL DE REVISIÓN</h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-blue-900/30">
+                                <th class="border border-blue-800 p-3 text-left">VERSIÓN</th>
+                                <th class="border border-blue-800 p-3 text-center">ELABORACIÓN</th>
+                                <th class="border border-blue-800 p-3 text-center">FECHA</th>
+                                <th class="border border-blue-800 p-3 text-center">RESPONSABLE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-blue-900/10">
+                                <td class="border border-blue-800 p-3 text-center">1.0.0</td>
+                                <td class="border border-blue-800 p-3">
+                                    Victor Manuel Ruiz Roque<br>
+                                    Brandon Alexander Gómez Calambaz<br>
+                                    Andres Felipe Triana Garces<br>
+                                    Jayi Danney Paladines Bolañoz<br>
+                                    Claudia Valentina Morales Omen
+                                </td>
+                                <td class="border border-blue-800 p-3 text-center">18/06/2025</td>
+                                <td class="border border-blue-800 p-3 text-center">
+                                    <div class="mb-2">18/06/2025</div>
+                                    <div>Diego Calderón Sirva</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- CAMBIOS RESPECTO A LA VERSIÓN ANTERIOR -->
+                <h3 class="text-2xl font-bold mb-6 mt-12 text-center">CAMBIOS RESPECTO A LA VERSIÓN ANTERIOR</h3>
+                
+                <div class="overflow-x-auto mb-12">
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-blue-900/30">
+                                <th class="border border-blue-800 p-3 text-center">VERSIÓN</th>
+                                <th class="border border-blue-800 p-3 text-center">FECHA</th>
+                                <th class="border border-blue-800 p-3 text-center">DESCRIPCIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-blue-900/10">
+                                <td class="border border-blue-800 p-3 text-center">1.0.0</td>
+                                <td class="border border-blue-800 p-3 text-center">18/06/2025</td>
+                                <td class="border border-blue-800 p-3">
+                                    <div class="font-semibold">Versión inicial del documento</div>
+                                    <div class="text-slate-300 text-sm mt-1">
+                                        - Se crea el documento inicial con la estructura básica<br>
+                                        - Se definen los requisitos funcionales y no funcionales<br>
+                                        - Se establece el alcance del proyecto
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </RequerimientosLayout> 
