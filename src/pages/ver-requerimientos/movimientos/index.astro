@@ -1,0 +1,113 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+---
+
+<RequerimientosLayout title="Movimientos - Requerimientos">
+    <RequerimientosSidebar />
+    
+    <div class="fixed top-4 right-4 z-10 flex gap-4">
+        <Button 
+            href="/ver-requerimientos"
+            variant="outline"
+            size="lg"
+            class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+        >
+            Volver a Requerimientos
+        </Button>
+    </div>
+
+    <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+        <!-- Encabezado -->
+        <div class="w-full max-w-4xl mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Requerimiento: Movimientos</h1>
+            <p class="text-slate-300">ID: 12 | Prioridad: <span class="text-red-400 font-medium">Alta</span></p>
+            <div class="h-1 bg-gradient-to-r from-red-500 to-transparent rounded-full mt-2"></div>
+        </div>
+
+        <!-- Contenido del Requerimiento -->
+        <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <!-- Sección de Descripción -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+                <p class="text-gray-300 mb-4">
+                    Este módulo permite gestionar todos los movimientos de inventario, incluyendo entradas, salidas, transferencias y ajustes de inventario. Proporciona un registro completo y trazable de todas las transacciones de materiales en el sistema, permitiendo un control preciso del inventario en todo momento.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="px-3 py-1 bg-indigo-900/50 text-indigo-300 text-sm rounded-full">Movimientos</span>
+                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Inventario</span>
+                    <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">Trazabilidad</span>
+                </div>
+            </div>
+
+            <!-- Sección de Entradas -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Entradas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Datos del movimiento (tipo, fecha, referencia)</li>
+                    <li>Materiales involucrados y cantidades</li>
+                    <li>Ubicación de origen y destino</li>
+                    <li>Usuario responsable</li>
+                    <li>Documento de respaldo (factura, orden, etc.)</li>
+                    <li>Estado del movimiento</li>
+                    <li>Notas u observaciones</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Salidas -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Salidas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Registro del movimiento en el sistema</li>
+                    <li>Actualización de inventario en tiempo real</li>
+                    <li>Comprobante o recibo del movimiento</li>
+                    <li>Notificaciones a usuarios involucrados</li>
+                    <li>Histórico de movimientos</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Diseño -->
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-white mb-6">Diseño de la Interfaz</h2>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <div class="rounded-lg overflow-hidden border border-gray-700">
+                        <div class="p-8 text-center text-gray-400">
+                            <p>Diseño de la interfaz de Movimientos</p>
+                            <p class="text-sm mt-2">(La imagen del diseño se mostrará aquí)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</RequerimientosLayout>
+
+<style>
+    /* Estilos adicionales específicos para esta página */
+    ul li::marker {
+        color: rgba(129, 140, 248, 0.7);
+    }
+    
+    /* Estilos para la tabla */
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    
+    th, td {
+        padding: 0.75rem 1rem;
+    }
+    
+    tr:hover {
+        background-color: rgba(31, 41, 55, 0.5);
+    }
+    
+    /* Estilos para los botones de acción */
+    button:focus {
+        outline: none;
+        ring: 2px;
+        ring-offset-2: 2px;
+        ring-indigo-500: true;
+    }
+</style>

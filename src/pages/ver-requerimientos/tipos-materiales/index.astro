@@ -1,0 +1,111 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+---
+
+<RequerimientosLayout title="Tipos de Materiales - Requerimientos">
+    <RequerimientosSidebar />
+    
+    <div class="fixed top-4 right-4 z-10 flex gap-4">
+        <Button 
+            href="/ver-requerimientos"
+            variant="outline"
+            size="lg"
+            class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+        >
+            Volver a Requerimientos
+        </Button>
+    </div>
+
+    <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+        <!-- Encabezado -->
+        <div class="w-full max-w-4xl mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Requerimiento: Tipos de Materiales</h1>
+            <p class="text-slate-300">ID: 11 | Prioridad: <span class="text-green-400 font-medium">Media</span></p>
+            <div class="h-1 bg-gradient-to-r from-green-500 to-transparent rounded-full mt-2"></div>
+        </div>
+
+        <!-- Contenido del Requerimiento -->
+        <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <!-- Sección de Descripción -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+                <p class="text-gray-300 mb-4">
+                    Este módulo permite definir y gestionar los diferentes tipos de materiales que se manejan en el sistema. Cada tipo de material puede tener características y propiedades específicas que lo diferencian de otros, permitiendo una mejor organización y control del inventario.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="px-3 py-1 bg-green-900/50 text-green-300 text-sm rounded-full">Materiales</span>
+                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Clasificación</span>
+                    <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">Inventario</span>
+                </div>
+            </div>
+
+            <!-- Sección de Entradas -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Entradas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Nombre del tipo de material</li>
+                    <li>Descripción detallada</li>
+                    <li>Categoría a la que pertenece</li>
+                    <li>Unidad de medida estándar</li>
+                    <li>Características específicas del tipo</li>
+                    <li>Vida útil estimada (si aplica)</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Salidas -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Salidas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Catálogo de tipos de materiales</li>
+                    <li>Reportes por tipo de material</li>
+                    <li>Estadísticas de uso por tipo</li>
+                    <li>Inventario clasificado por tipo de material</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Diseño -->
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-white mb-6">Diseño de la Interfaz</h2>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <div class="rounded-lg overflow-hidden border border-gray-700">
+                        <div class="p-8 text-center text-gray-400">
+                            <p>Diseño de la interfaz de Tipos de Materiales</p>
+                            <p class="text-sm mt-2">(La imagen del diseño se mostrará aquí)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</RequerimientosLayout>
+
+<style>
+    /* Estilos adicionales específicos para esta página */
+    ul li::marker {
+        color: rgba(74, 222, 128, 0.7);
+    }
+    
+    /* Estilos para la tabla */
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    
+    th, td {
+        padding: 0.75rem 1rem;
+    }
+    
+    tr:hover {
+        background-color: rgba(31, 41, 55, 0.5);
+    }
+    
+    /* Estilos para los botones de acción */
+    button:focus {
+        outline: none;
+        ring: 2px;
+        ring-offset-2: 2px;
+        ring-green-500: true;
+    }
+</style>
