@@ -1,0 +1,83 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+---
+
+<RequerimientosLayout title="Dashboard - Requerimientos">
+    <RequerimientosSidebar />
+    
+    <div class="fixed top-4 right-4 z-10 flex gap-4">
+        <Button 
+            href="/ver-requerimientos"
+            variant="outline"
+            size="lg"
+            class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+        >
+            Volver a Requerimientos
+        </Button>
+    </div>
+
+    <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+        <!-- Encabezado -->
+        <div class="w-full max-w-4xl mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Requerimiento: Dashboard</h1>
+            <p class="text-slate-300">ID: 4 | Prioridad: <span class="text-red-400 font-medium">Alta</span></p>
+            <div class="h-1 bg-gradient-to-r from-red-500 to-transparent rounded-full mt-2"></div>
+        </div>
+
+        <!-- Contenido del Requerimiento -->
+        <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <!-- Sección de Descripción -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+                <p class="text-gray-300 mb-4">
+                    En esta interfaz, los usuarios pueden ver un resumen del sistema que incluye información clave como el número total de usuarios, los movimientos realizados, los materiales disponibles y los sitios gestionados. Además, se presentan gráficos interactivos que hacen que la información sea más fácil de entender y permiten identificar patrones y cambios de manera rápida, donde el usuario podrá modificar el dashboard como lo crea necesario y como lo requiera.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Dashboard</span>
+                    <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full">Gráficos</span>
+                    <span class="px-3 py-1 bg-green-900/50 text-green-300 text-sm rounded-full">Métricas</span>
+                </div>
+            </div>
+
+            <!-- Sección de Requisitos Funcionales -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Entradas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Datos de usuarios</li>
+                    <li>Movimientos</li>
+                    <li>Materiales</li>
+                    <li>Sitios</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Salidas -->
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-white mb-4">Salidas</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Resumen visual</li>
+                    <li>Gráficos interactivos</li>
+                    <li>Alertas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</RequerimientosLayout>
+
+<style>
+    /* Estilos adicionales específicos para esta página */
+    ul li::marker {
+        color: rgba(234, 179, 8, 0.7);
+    }
+    
+    /* Efecto hover en las tarjetas */
+    .stat-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
