@@ -1,5 +1,5 @@
 // Configuración global de la API
-export const API_BASE_URL = 'http://12345678:3000';
+export const API_BASE_URL = 'http://localhost:3000';
 
 // Función para obtener la URL completa de un endpoint
 export function getApiUrl(endpoint: string): string {
