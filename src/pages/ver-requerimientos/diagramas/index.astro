@@ -1,0 +1,71 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+---
+
+<RequerimientosLayout title="Diagramas ERD - Requerimientos">
+  <RequerimientosSidebar />
+
+  <div class="fixed top-4 right-4 z-10 flex gap-4">
+    <Button 
+      href="/ver-requerimientos"
+      variant="outline"
+      size="lg"
+      class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+    >
+      Volver a Requerimientos
+    </Button>
+  </div>
+
+  <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+    <!-- Encabezado -->
+    <div class="w-full max-w-5xl mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">Diagramas: Modelo Entidad–Relación (ERD)</h1>
+      <p class="text-slate-300">Vista general del modelo de datos principal del sistema.</p>
+      <div class="h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full mt-2"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full max-w-5xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <!-- Descripción -->
+      <div class="p-6 border-b border-gray-700">
+        <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+        <p class="text-gray-300 mb-4">
+          El diagrama entidad–relación (ERD) representa las entidades clave del sistema, sus atributos y las relaciones
+          entre ellas. Sirve como base para el diseño de la base de datos y facilita la comunicación entre el equipo de
+          desarrollo y las partes interesadas.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Base de datos</span>
+          <span class="px-3 py-1 bg-indigo-900/50 text-indigo-300 text-sm rounded-full">Modelado</span>
+          <span class="px-3 py-1 bg-sky-900/50 text-sky-300 text-sm rounded-full">Documentación</span>
+        </div>
+      </div>
+
+      <!-- Galería de Diagramas -->
+      <div class="p-6">
+        <h2 class="text-xl font-semibold text-white mb-6">Diagramas ERD</h2>
+        <div class="bg-gray-900 p-4 rounded-lg">
+          <div class="rounded-lg overflow-hidden border border-gray-700">
+            <img 
+              src="/image/Diagramas/1.jpg" 
+              alt="Diagrama Entidad–Relación (ERD) principal"
+              class="w-full h-auto object-contain"
+              loading="eager"
+            />
+          </div>
+          <p class="text-gray-400 text-sm mt-3">
+            Fuente: carpeta pública <code>/public/image/Diagramas/</code>. Si agregas más imágenes (2.jpg, 3.jpg, ...),
+            puedo actualizar esta vista para mostrarlas en una cuadrícula.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</RequerimientosLayout>
+
+<style>
+  /* Estilos adicionales específicos para esta página */
+  ul li::marker { color: rgba(59, 130, 246, 0.7); }
+</style>

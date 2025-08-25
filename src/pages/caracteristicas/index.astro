@@ -230,49 +230,8 @@ import { AnimacionSubida } from '../../components/AnimacionSubida';
               </ul>
             </div>
           </div>
-
-          <!-- DELETE /caracteristicas/:id -->
-          <div class="mb-12">
-            <div class="flex items-center gap-3 mb-4 relative">
-              <span class="bg-red-500 text-white px-3 py-1 rounded-md font-bold text-sm">DELETE</span>
-              <ApiUrl endpoint="/caracteristicas/:id" tag="h3" />
-              <div class="absolute right-0">
-                <CopyButton text="http://localhost:3000/caracteristicas/:id" />
-              </div>
-            </div>
-            <p class="mb-4 text-gray-700 dark:text-gray-300">
-              Elimina una característica del sistema.
-            </p>
-            <div class="mb-6">
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Parámetros de URL</h4>
-              <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                <thead class="bg-gray-100 dark:bg-gray-900">
-                  <tr>
-                    <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Parámetro</th>
-                    <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Tipo</th>
-                    <th class="text-left py-2 px-4 border-b border-gray-200 dark:border-gray-700">Descripción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700 font-mono">id</td>
-                    <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Integer</td>
-                    <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Identificador único de la característica</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Códigos de respuesta</h4>
-              <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-                <li><span class="font-mono text-green-600 dark:text-green-400">200</span> - Característica eliminada exitosamente</li>
-                <li><span class="font-mono text-yellow-600 dark:text-yellow-400">404</span> - Característica no encontrada</li>
-                <li><span class="font-mono text-red-600 dark:text-red-400">500</span> - Error del servidor</li>
-              </ul>
-            </div>
-          </div>
         </section>
       </AnimacionSubida>
     </div>
   </div>
-</Layout> 
+</Layout>
