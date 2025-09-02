@@ -1,0 +1,77 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+
+const title = 'Diagramas de Secuencia';
+const description = 'Visualización de los diagramas de secuencia del sistema';
+---
+
+<RequerimientosLayout title={`${title} - Requerimientos`}>
+  <RequerimientosSidebar />
+
+  <div class="fixed top-4 right-4 z-10 flex gap-4">
+    <Button 
+      href="/ver-requerimientos"
+      variant="outline"
+      size="lg"
+      class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+    >
+      Volver a Requerimientos
+    </Button>
+  </div>
+
+  <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+    <!-- Encabezado -->
+    <div class="w-full max-w-5xl mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">{title}</h1>
+      <p class="text-slate-300">Visualización detallada de los flujos de interacción del sistema.</p>
+      <div class="h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full mt-2"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full max-w-5xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <!-- Descripción -->
+      <div class="p-6 border-b border-gray-700">
+        <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+        <p class="text-gray-300 mb-4">
+          Los diagramas de secuencia muestran la interacción entre objetos en un caso de uso, representando la secuencia de mensajes 
+          intercambiados entre los objetos para lograr una funcionalidad específica del sistema.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Interacciones</span>
+          <span class="px-3 py-1 bg-indigo-900/50 text-indigo-300 text-sm rounded-full">Flujos</span>
+          <span class="px-3 py-1 bg-sky-900/50 text-sky-300 text-sm rounded-full">Documentación</span>
+        </div>
+      </div>
+
+      <!-- Galería de Diagramas -->
+      <div class="p-6">
+        <h2 class="text-xl font-semibold text-white mb-6">Diagramas de Secuencia</h2>
+        <div class="space-y-8">
+          {Array.from({length: 19}, (_, i) => {
+            const num = i + 1;
+            const imageNumber = String(i + 3).padStart(4, '0');
+            const imagePath = `/image/Diagramas de Secuencia/IMG-20250901-WA${imageNumber}.jpg`;
+            
+            return (
+              <div class="bg-gray-900 p-4 rounded-lg">
+                <div class="rounded-lg overflow-hidden border border-gray-700">
+                  <img 
+                    src={imagePath} 
+                    alt={`Diagrama de secuencia ${num}`}
+                    class="w-full h-auto object-contain"
+                    loading={num <= 3 ? 'eager' : 'lazy'}
+                  />
+                </div>
+                <p class="text-gray-400 text-sm mt-3 text-center">
+                  Diagrama de secuencia {num}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</RequerimientosLayout>

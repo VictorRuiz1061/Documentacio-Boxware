@@ -1,0 +1,66 @@
+---
+import RequerimientosLayout from '../../../layouts/RequerimientosLayout.astro';
+import RequerimientosSidebar from '../../../components/RequerimientosSidebar.astro';
+import Button from '../../../components/Button/Button.astro';
+
+const title = 'Diagrama de Clases';
+const description = 'Visualización del diagrama de clases del sistema';
+---
+
+<RequerimientosLayout title={`${title} - Requerimientos`}>
+  <RequerimientosSidebar />
+
+  <div class="fixed top-4 right-4 z-10 flex gap-4">
+    <Button 
+      href="/ver-requerimientos"
+      variant="outline"
+      size="lg"
+      class="backdrop-blur-md bg-slate-800/50 shadow-xl hover:bg-slate-700/50"
+    >
+      Volver a Requerimientos
+    </Button>
+  </div>
+
+  <div class="min-h-screen w-full p-8 pl-72 flex flex-col items-center">
+    <!-- Encabezado -->
+    <div class="w-full max-w-5xl mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">{title}</h1>
+      <p class="text-slate-300">Estructura de clases y sus relaciones en el sistema.</p>
+      <div class="h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full mt-2"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full max-w-5xl bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <!-- Descripción -->
+      <div class="p-6 border-b border-gray-700">
+        <h2 class="text-xl font-semibold text-white mb-4">Descripción</h2>
+        <p class="text-gray-300 mb-4">
+          El diagrama de clases muestra la estructura estática del sistema, incluyendo las clases, sus atributos, 
+          métodos y las relaciones entre ellas. Este modelo es fundamental para entender la arquitectura del software.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="px-3 py-1 bg-blue-900/50 text-blue-300 text-sm rounded-full">Clases</span>
+          <span class="px-3 py-1 bg-indigo-900/50 text-indigo-300 text-sm rounded-full">Relaciones</span>
+          <span class="px-3 py-1 bg-sky-900/50 text-sky-300 text-sm rounded-full">Arquitectura</span>
+        </div>
+      </div>
+
+      <!-- Galería de Diagramas -->
+      <div class="p-6">
+        <div class="bg-gray-900 p-4 rounded-lg">
+          <div class="rounded-lg overflow-hidden border border-gray-700">
+            <img 
+              src="/image/Diagrama de Clases/Imagen de WhatsApp 2025-09-01 a las 21.32.45_f969c755.jpg" 
+              alt="Diagrama de Clases del Sistema"
+              class="w-full h-auto object-contain"
+              loading="eager"
+            />
+          </div>
+          <p class="text-gray-400 text-sm mt-3 text-center">
+            Diagrama de Clases del Sistema
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</RequerimientosLayout>
